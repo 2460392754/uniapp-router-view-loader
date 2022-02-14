@@ -1,0 +1,19 @@
+{
+    "name": "uniapp-router-view-loader",
+    "version": "1.0.17",
+    "description": "",
+    "main": "./dist/index.js",
+    "scripts": {
+        "build": "rollup --config",
+        "addVersion": "npm --no-git-tag-version version patch"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "rollup-plugin-uglify": "^6.0.4"
+    },
+    "dependencies": {
+        "jsonminify": "^0.4.2",
+        "rollup": "^2.67.2"
+    }
+}
