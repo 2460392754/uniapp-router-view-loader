@@ -2,17 +2,35 @@
 
 ## 兼容性
 
+| vue-cli | hbuilderx |
+| ------- | --------- |
+| √       | √         |
+
+| vue2 | vue3 | nvue | ts  | webpack | vite |
+| ---- | ---- | ---- | --- | ------- | ---- |
+| √    | √    | √    | √   | √       | √    |
+
 | H5  | 微信 | 支付宝 | 字节跳动 | QQ  | 百度 | 360 | 飞书 | 快手 | 华为 | 快应用 | App |
 | --- | ---- | ------ | -------- | --- | ---- | --- | ---- | ---- | ---- | ------ | --- |
 | √   | √    | √      | √        | √   | √    | √   | √    | ?    | ?    | ?      | √   |
 
-## Install
+## 单元测试覆盖率
+
+| File     | Statements | Branches | Functions | Lines |
+| -------- | ---------- | -------- | --------- | ----- |
+| utils.js | 100%       | 95.45%   | 100%      | 100%  |
+
+## 关于
+
+-   支持自动解析`pages.json`的路由文件（包括分包路由），自动全局注入
+
+## 安装
 
 ```bash
-yarn add uniapp-router-view-loader
+yarn add uniapp-router-view-loader --registry=https://pocky-npm.pkg.coding.net/npm/uniapp-router-view-loader/
 ```
 
-## Register Loader
+## vue2 注册插件
 
 `vue.config.js`文件（没有就创建）
 
@@ -50,6 +68,25 @@ module.exports = {
     }
 };
 ```
+
+## vue3 注册插件
+
+```javascript
+import { defineConfig } from 'vite';
+import uni from '@dcloudio/vite-plugin-uni';
+import { vitePlugin } from 'uniapp-router-view-loader';
+
+export default defineConfig({
+    plugins: [
+        uni(),
+        vitePlugin({
+            publicPath: './src'
+        })
+    ]
+});
+```
+
+`vite.config.js`文件（没有就创建）
 
 ## Loader Options
 

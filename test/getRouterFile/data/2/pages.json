@@ -1,0 +1,27 @@
+{
+    "pages": [{ "path": "src/pages/A" }, { "path": "src/pages/B/B1" }],
+    "subPackages": [
+        {
+            "root": "src/packages/C",
+            "pages": [
+                {
+                    "path": "views/C1"
+                }
+            ]
+        },
+        {
+            "root": "src/packages/D",
+            "pages": [
+                {
+                    "path": "views/D1"
+                },
+                {
+                    "path": "views/D2"
+                },
+                {
+                    "path": "views/D3/D31"
+                }
+            ]
+        }
+    ]
+}

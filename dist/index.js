@@ -1,8 +1,11 @@
 'use strict';
 
+Object.defineProperty(exports, '__esModule', { value: true });
+
 var Path = require('path');
 var Fs = require('fs');
 var Jsonminify = require('jsonminify');
+var nodeHtmlParser = require('node-html-parser');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -10,27 +13,88 @@ var Path__default = /*#__PURE__*/_interopDefaultLegacy(Path);
 var Fs__default = /*#__PURE__*/_interopDefaultLegacy(Fs);
 var Jsonminify__default = /*#__PURE__*/_interopDefaultLegacy(Jsonminify);
 
-const getPath = (filePath) => {
-    return Path__default["default"].join(__dirname, '../', ...filePath)
+var ErrorId = {
+    10001: 'pages.json文件解析异常',
+    10101: 'App.vue文件中未找到<view-router />标签',
+    10102: 'App.vue文件中<view-router />标签数量超过1个以上',
+    10201: '运行环境异常'
 };
+
+var name = "uniapp-router-view-loader";
+var version = "1.0.26";
+
+/**
+ * pages.json 在项目中的相对路径
+ */
+const publicPath = '../../';
+
+/**
+ * vnode 节点
+ */
+const VNode = {
+    'VNode-Navbar': '/src/template/navbar',
+    'VNode-Copyright': '/src/template/copyright',
+};
+
+var Config = /*#__PURE__*/Object.freeze({
+    __proto__: null,
+    publicPath: publicPath,
+    VNode: VNode,
+    name: name,
+    version: version
+});
 
 // const reg = /^node-modules\/uview-ui\S+/
 
 /**
- * 获取 所有已注册的路由文件
+ * 获取 当前路径(在node_modules下)
+ * @param {string} filePath 
  * @returns 
  */
-const getRouteFileAll = function (config) {
+const getPath = (filePath) => {
+    return Path__default["default"].join(__dirname, '../', ...filePath)
+};
+
+/**
+ * 获取 文件匹配正则（vue或nvue文件）
+ * @param {string} path 
+ * @param {string} path 
+ * @returns 
+ */
+const getFileMatchReg = function (publicPath, path) {
+    const fullPath = getPath([publicPath, `/${path}`]);
+    const reg = new RegExp(`^${fullPath}.(n)?vue$`);
+
+    return reg;
+};
+
+/**
+ * 获取 所有已注册的路由文件的正则规则（vue或nvue文件）
+ * @returns 
+ */
+const getRouteFileMatchRegAll = function (config) {
     try {
         const str = Jsonminify__default["default"](Fs__default["default"].readFileSync(getPath([config.publicPath, './pages.json']), 'utf8'));
-        const { pages } = JSON.parse(str);
+        const { pages, subPackages = [] } = JSON.parse(str);
+        const list = [];
 
-        return pages.map(item => getPath([config.publicPath, `/${item.path}.vue`]))
+        pages.forEach(({ path }) => {
+            list.push(getFileMatchReg(config.publicPath, path));
+        });
+
+        subPackages.forEach(({ pages, root }) => {
+            pages.forEach(({ path }) => {
+                list.push(getFileMatchReg(config.publicPath, root + '/' + path));
+            });
+        });
+
+        return list;
     } catch (e) {
         console.log(e);
-        throw new Error('pages.json 解析错误')
+        print('error', ErrorId[10001]);
     }
 };
+
 
 /**
  * 添加代码到头部
@@ -67,25 +131,22 @@ const addCodeToFooter = function (source, code) {
  * @returns 
  */
 const handleAppTemplateAddCode = function (source) {
-    // return source.match(/(?<=<\/template>)[\w\W]*/)[0]
-    // 我们添加的代码
+    // `App.vue`中我们添加的代码`tepmlate`代码
     let addCode = '';
 
     switch (process.env.UNI_PLATFORM) {
         case 'h5':
             // 获取App.vue中uniapp插入的代码和我们添加的代码
             const originTemplateCode = source.replace(/(?<=<\/template>)[\w\W]*<\/template>/, s => {
-                // const originTemplateCode = source.replace(/(?<=<\/template>)[\w\W]*/, s => {
                 addCode = s;
                 return '';
-            });
+            }).match(/<template>[\s\S]+<\/template>/)[0];
 
             // 移除我们添加的代码, 使代码还原
             source = source.replace(/<template>[\s\S]+<\/template>/, originTemplateCode);
 
             return {
                 source,
-                // originTemplateCode,
                 addCode
             };
 
@@ -98,7 +159,6 @@ const handleAppTemplateAddCode = function (source) {
         case 'quickapp-webview':
         case 'app-plus':
             source = source.replace(/<template>[\s\S]+<\/template>/, s => {
-                // const originTemplateCode = source.replace(/(?<=<\/template>)[\w\W]*/, s => {
                 addCode = s;
                 return '';
             });
@@ -107,6 +167,9 @@ const handleAppTemplateAddCode = function (source) {
                 source,
                 addCode
             }
+
+        default:
+            print('error', ErrorId[10201]);
     }
 };
 
@@ -117,12 +180,38 @@ const handleAppTemplateAddCode = function (source) {
  * ```
  * <text>123</text>
  * <view />
- * <view><text>123</text></view>
+ * <view>
+ *     <text>123</text>
+ * </view>
  * ```
  * @param {*} source 
  */
 const handleGetTemplateRowCode = function (source) {
-    return source.replace(/<(\/?)template>/g, '').match(/(<.*? \/>)|(<.*?>([\w\s<>\/]+)<\/.*?>)/g)
+    // 过滤template标签
+    source = source.replace(/<(\/?)template>/g, '');
+
+    // 过滤注释标签并解第一层级的所有标签
+    const codeStrList = nodeHtmlParser.parse(source).querySelectorAll('> *').toString().split(',');
+
+    // 过滤 \n和空格
+    // return codeStrList.map(codeStr => codeStr.replace(/(\n?)\s+/g, ''));
+    return codeStrList.map(codeStr => codeStr.replace(/\n\s+/g, ''));
+
+    // === 
+    // const list = [];
+
+    // // 过滤 注释标签
+    // source = parse(source).toString();
+
+    // // <Label />
+    // source = source.replace(/<.*? \/>/g, s => {
+    //     list.push(s);
+    //     return '';
+    // })
+
+    // source.match(/(<.*? \/>)|(<.*?>([\w\s<>\/]+)<\/.*?>)/g)
+
+    // return list;
 };
 
 /**
@@ -131,14 +220,17 @@ const handleGetTemplateRowCode = function (source) {
  * @returns 
  */
 const handleGetTemplateHeaderOrFooterLabelCode = function (labelList) {
+    const viewRouterReg = /<view-router(\s{0,})><\/view-router>/;
     const header = [];
     const footer = [];
 
     let flag = false;
+    let count = 0;
 
     labelList.forEach(label => {
-        if (/\<view-router\s+\/>/.test(label)) {
+        if (viewRouterReg.test(label)) {
             flag = true;
+            count++;
             return true;
         }
 
@@ -149,11 +241,61 @@ const handleGetTemplateHeaderOrFooterLabelCode = function (labelList) {
         }
     });
 
+    // 标签异常
+    if (count === 0) {
+        print('error', ErrorId[10101]);
+    } else if (count > 1) {
+        print('error', ErrorId[10102]);
+    }
+
     return {
         header,
         footer
     }
 };
+
+/**
+ * 获取 显示ID
+ * @returns 
+ */
+const getPrintID = function () {
+    return `[${name}]:`
+};
+
+/**
+ * 打印日志
+ * @param {'log'|'error'} type 
+ * @param {string} msg
+ */
+const print = function (type = 'log', msg) {
+    const ID = getPrintID();
+
+    switch (type) {
+        case 'log':
+            console.log(`${ID}${msg}`);
+            break;
+
+        case 'error':
+            throw new Error(`${ID}${msg}`)
+    }
+};
+
+/**
+ * 获取 ast 中静态和动态 class 内容
+ * @param {*} ast
+ * @returns
+ */
+//  export const getClass = function (ast) {
+//     const staticName = ast.attrsMap['class'];
+//     const dynamicName = ast.attrsMap[':class'];
+
+//     return {
+//         hasStatic: staticName !== undefined,
+//         hasDynamic: dynamicName !== undefined,
+//         staticName,
+//         dynamicName
+//     }
+// }
 
 /**
  * 处理 class 拼接
@@ -162,7 +304,7 @@ const handleGetTemplateHeaderOrFooterLabelCode = function (labelList) {
  * @param {Object} ast.attrsMap
  * @param {string} ast.attrsMap.class
  * @returns
- */
+//
 // export const handleClassJoin = function (source, ast) {
 //     const classCode = getClass(ast)
 //     // const static = / class=('|").*?('|")/;
@@ -206,11 +348,10 @@ const handleGetTemplateHeaderOrFooterLabelCode = function (labelList) {
 //     return res;
 // }
 
-
-/**
- * 替换 VNode 虚拟标签，例："<VNode-Navbar />"
- * @param {string} source
- */
+// /**
+//  * 替换 VNode 虚拟标签，例："<VNode-Navbar />"
+//  * @param {string} source
+//  */
 // export const handleVNodeReplace = function (source) {
 //     Object.keys(Config.VNode).forEach(name => {
 //         const reg = new RegExp(`<${name}(\\s{0,})\/>`)
@@ -225,36 +366,26 @@ const handleGetTemplateHeaderOrFooterLabelCode = function (labelList) {
 //     return source
 // }
 
-var Config = {
-    /**
-     * pages.json 在项目中的相对路径
-     */
-    publicPath: '../../',
-
-    /**
-     * vnode 节点
-     */
-    VNode: {
-        'VNode-Navbar': '/src/template/navbar',
-        'VNode-Copyright': '/src/template/copyright',
-    }
-};
-
-// const Utils = require('./utils')
-
 let addLabel = {
     header: [],
     footer: []
 };
 
+/**
+ * webpack
+ * @param {string} source 
+ * @returns 
+ */
 function index (source) {
-    const config = Object.assign(Config, this.query, {
+    const config = Object.assign({}, Config, this.query, {
         publicPath: '../../' + this.query.publicPath
     });
-    const routeList = getRouteFileAll(config);
+    const routeFilePathRegList = getRouteFileMatchRegAll(config);
 
+    // 匹配 App.vue
     if (this.resourcePath === getPath([config.publicPath, '/App.vue'])) {
-        console.log('process: ', process.env.UNI_PLATFORM);
+        print('App.vue file match, process: ', process.env.UNI_PLATFORM);
+
         const handleAppRes = handleAppTemplateAddCode(source);
         const labelList = handleGetTemplateRowCode(handleAppRes.addCode);
         const handleLabelList = handleGetTemplateHeaderOrFooterLabelCode(labelList);
@@ -263,29 +394,59 @@ function index (source) {
         addLabel = Object.assign(addLabel, handleLabelList);
     }
 
-    if (routeList.includes(this.resourcePath)) {
-        console.log('file match: ', this.resourcePath);
-        // ============
-        // template 的第一个子标签
-        // const pageCodeSource = compile(source, {}).ast.children[0]
-        // source = Utils.handleClassJoin(source, pageCodeSource);
-        // ============
+    // 匹配 路由文件
+    if (routeFilePathRegList.some(reg => reg.test(this.resourcePath))) {
+        print('route file match: ', this.resourcePath);
+
         source = addCodeToHeader(source, addLabel.header.join(''));
         source = addCodeToFooter(source, addLabel.footer.join(''));
-        // source = Utils.addCodeToHeader(source, '<view>My Header</view>')
-        // source = Utils.addCodeToFooter(source, '<view>My Footer</view>')
-        // ============
-
-        // ============
-        // console.log(Utils.handleClassJoin(source, pageCodeSource))
-        // console.log(source)
-
-        // console.log(compileToFunctions(source))
-        // console.log(compile(source))
-        // ============
     }
 
     return source
 }
 
-module.exports = index;
+/**
+ * vite
+ * @returns 
+ */
+function vitePlugin(opts) {
+    const config = Object.assign({}, Config, opts, {
+        publicPath: '../../' + opts.publicPath
+    });
+    const routeFilePathRegList = getRouteFileMatchRegAll(config);
+
+    process.env.UNI_PLATFORM = 'mp-weixin';
+
+    return {
+        name: name,
+        enforce: 'pre',
+
+        transform(source, path) {
+            if (path === getPath([config.publicPath, '/App.vue'])) {
+                print('App.vue file match, process: ', process.env.UNI_PLATFORM);
+
+                const handleAppRes = handleAppTemplateAddCode(source);
+                const labelList = handleGetTemplateRowCode(handleAppRes.addCode);
+                const handleLabelList = handleGetTemplateHeaderOrFooterLabelCode(labelList);
+
+                source = handleAppRes.source;
+                addLabel = Object.assign(addLabel, handleLabelList);
+
+                return { code: source }
+            }
+
+            // 匹配 路由文件
+            if (routeFilePathRegList.some(reg => reg.test(path))) {
+                print('route file match: ', path);
+
+                source = addCodeToHeader(source, addLabel.header.join(''));
+                source = addCodeToFooter(source, addLabel.footer.join(''));
+
+                return { code: source }
+            }
+        }
+    }
+}
+
+exports["default"] = index;
+exports.vitePlugin = vitePlugin;

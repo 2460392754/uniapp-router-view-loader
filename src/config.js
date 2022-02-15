@@ -1,14 +1,14 @@
-export default {
-    /**
-     * pages.json 在项目中的相对路径
-     */
-    publicPath: '../../',
+export { name, version } from '../package.json'
 
-    /**
-     * vnode 节点
-     */
-    VNode: {
-        'VNode-Navbar': '/src/template/navbar',
-        'VNode-Copyright': '/src/template/copyright',
-    }
+/**
+ * pages.json 在项目中的相对路径
+ */
+export const publicPath = '../../'
+
+/**
+ * vnode 节点
+ */
+export const VNode = {
+    'VNode-Navbar': '/src/template/navbar',
+    'VNode-Copyright': '/src/template/copyright',
 }

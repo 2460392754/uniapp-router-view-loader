@@ -1,19 +1,29 @@
 {
     "name": "uniapp-router-view-loader",
-    "version": "1.0.17",
+    "version": "1.0.27",
     "description": "",
     "main": "./dist/index.js",
     "scripts": {
         "build": "rollup --config",
-        "addVersion": "npm --no-git-tag-version version patch"
+        "addV": "npm --no-git-tag-version version patch",
+        "test": "jest",
+        "test:coverage": "jest --coverage",
+        "demo:parseHtml": "babel-node ./demo/parseHtml.demo.js"
     },
     "author": "",
     "license": "ISC",
     "devDependencies": {
+        "@babel/core": "^7.17.2",
+        "@babel/node": "^7.16.8",
+        "@babel/preset-env": "^7.16.11",
+        "@rollup/plugin-json": "^4.1.0",
+        "@types/jest": "^27.4.0",
+        "jest": "^27.5.1",
+        "rollup": "^2.67.2",
         "rollup-plugin-uglify": "^6.0.4"
     },
     "dependencies": {
         "jsonminify": "^0.4.2",
-        "rollup": "^2.67.2"
+        "node-html-parser": "^5.2.0"
     }
 }

@@ -1,0 +1,48 @@
+{
+    "easycom": {
+        "autoscan": true,
+        "custom": {
+            "^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
+        }
+    },
+    "pages": [
+        { "path": "src/pages/views/home" },
+        { "path": "src/pages/views/coupon" },
+        { "path": "src/pages/views/me" }
+    ],
+    "subPackages": [
+        {
+            "root": "src/packages/coupon",
+            "pages": [
+                {
+                    "path": "views/test"
+                },
+                {
+                    "path": "views/123"
+                }
+            ]
+        }
+    ],
+    "globalStyle": {
+        "navigationBarTextStyle": "black",
+        "navigationBarTitleText": "",
+        "navigationBarBackgroundColor": "#F8F8F8",
+        "backgroundColor": "#f6f6f6",
+        "navigationStyle": "custom",
+        "transparentTitle": "always"
+    },
+    "tabBar": {
+        "color": "#666",
+        "selectedColor": "#4f81f5",
+        "borderStyle": "white",
+        "backgroundColor": "#ffffff",
+        "list": [
+            {
+                "pagePath": "src/pages/views/home",
+                "iconPath": "/static/tabbar/home.png",
+                "selectedIconPath": "/static/tabbar/home-select.png",
+                "text": "首页"
+            }
+        ]
+    }
+}

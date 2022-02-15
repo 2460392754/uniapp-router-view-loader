@@ -1,0 +1,3 @@
+{
+    "pages": [{ "path": "src/pages/A" }, { "path": "src/pages/B/B1" }]
+}
