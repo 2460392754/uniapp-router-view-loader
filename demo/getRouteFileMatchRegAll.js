@@ -1,7 +1,7 @@
 import { getRouteFileMatchRegAll } from '../src/utils'
 
 const regList = getRouteFileMatchRegAll({
-    publicPath: './test'
+    publicPath: './tes1t'
 })
 
 console.log(regList)

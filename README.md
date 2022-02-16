@@ -71,7 +71,9 @@ module.exports = {
 
 ## vue3 注册插件
 
-```javascript
+`vite.config.js`文件（没有就创建）
+
+```ts
 import { defineConfig } from 'vite';
 import uni from '@dcloudio/vite-plugin-uni';
 import { vitePlugin } from 'uniapp-router-view-loader';
@@ -85,8 +87,6 @@ export default defineConfig({
     ]
 });
 ```
-
-`vite.config.js`文件（没有就创建）
 
 ## Loader Options
 

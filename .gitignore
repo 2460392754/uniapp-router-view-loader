@@ -1,5 +1,9 @@
-/.idea
 /node_modules
+/demo
+/docs/.vuepress/.temp
+/docs/.vuepress/.cache
+/docs/.vuepress/dist
+
+/.idea
 /.npmrc
-/.demo
-/.DS_Store
+**/.DS_Store
