@@ -3018,7 +3018,7 @@ get-symbol-description@^1.0.0:
     call-bind "^1.0.2"
     get-intrinsic "^1.1.1"
 
-glob-parent@^5.1.2, glob-parent@~5.1.2:
+glob-parent@^5.1.1, glob-parent@^5.1.2, glob-parent@~5.1.2:
   version "5.1.2"
   resolved "https://pocky-npm.pkg.coding.net/npm/uniapp-router-view-loader/__tarballs/glob-parent/5.1.2/__path/npm/glob-parent/-/glob-parent-5.1.2/869832c58034fe68a4093c17dc15e8340d8401c4.tgz#869832c58034fe68a4093c17dc15e8340d8401c4"
   integrity sha512-AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow==
@@ -3068,6 +3068,15 @@ gray-matter@^4.0.3:
     kind-of "^6.0.2"
     section-matter "^1.0.0"
     strip-bom-string "^1.0.0"
+
+gzip-cli@^1.2.0:
+  version "1.2.0"
+  resolved "https://pocky-npm.pkg.coding.net/npm/uniapp-router-view-loader/__tarballs/gzip-cli/1.2.0/__path/npm/gzip-cli/-/gzip-cli-1.2.0/c85326cc0737ba63b67d8d7940b4010f5bab8965.tgz#c85326cc0737ba63b67d8d7940b4010f5bab8965"
+  integrity sha512-uMJGySMdAmXrMOoFeTztXDT1NEYQ1n+WoWYvb35ttim1JU3GOxYlGloq9aHXugdkAbldyUrYeLBxlpGBz8NuCg==
+  dependencies:
+    glob "^7.1.6"
+    glob-parent "^5.1.1"
+    minimist "^1.2.5"
 
 has-bigints@^1.0.1:
   version "1.0.1"

@@ -49,7 +49,6 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
         sidebar: [
             {
                 text: '指南',
-                // link: '/guide/',
                 children: [
                     '/guide/introduce',
                     '/guide/install',

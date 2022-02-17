@@ -10,7 +10,7 @@
         "test:coverage": "jest --coverage",
         "demo:parseHtml": "babel-node ./demo/parseHtml.demo.js",
         "docs:dev": "vuepress dev docs",
-        "docs:build": "vuepress build docs"
+        "docs:build": "vuepress build docs && gzip ./docs/.vuepress/dist/**/*.js"
     },
     "author": "",
     "license": "ISC",
@@ -21,6 +21,7 @@
         "@rollup/plugin-json": "^4.1.0",
         "@types/jest": "^27.4.0",
         "@vuepress/plugin-search": "^2.0.0-beta.35",
+        "gzip-cli": "^1.2.0",
         "jest": "^27.5.1",
         "rollup": "^2.67.2",
         "rollup-plugin-ts": "^2.0.5",
