@@ -1,12 +1,19 @@
 import { defineUserConfig } from 'vuepress';
 import type { DefaultThemeOptions } from 'vuepress';
-// import { copyCode } from 'vuepress-plugin-copy-code2';
+import type { ViteBundlerOptions } from '@vuepress/bundler-vite';
 
-export default defineUserConfig<DefaultThemeOptions>({
+export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
     // 站点配置
     lang: 'en-US',
     title: 'uniapp-router-view-loader',
     description: 'Just playing around',
+    base: '/',
+
+    bundlerConfig: {
+        viteOptions: {
+            // base: './'
+        }
+    },
 
     plugins: [
         // ['vuepress-plugin-vuepress2.x-code-copy', true]
@@ -16,9 +23,6 @@ export default defineUserConfig<DefaultThemeOptions>({
             {
                 locales: {
                     '/': {
-                        placeholder: 'Search'
-                    },
-                    '/zh/': {
                         placeholder: '搜索'
                     }
                 }
@@ -26,28 +30,26 @@ export default defineUserConfig<DefaultThemeOptions>({
         ]
     ],
 
-    // 主题和它的配置
-    // theme: '@vuepress/theme-default',
-    // theme: 'antdocs',
-    // theme: 'vuepress-theme-gungnir',
-    // theme: 'vt',
+    theme: 'vuepress-theme-quicksand',
     themeConfig: {
+        contributors: false,
         logo: 'https://vuejs.org/images/logo.png',
-
         navbar: [
+            { text: '首页', link: '/' },
             { text: '指南', link: '/guide/introduce' },
-            { text: '插件市场', link: '/guide/' },
-            { text: 'Gitee', link: '/guide/' },
+            { text: '插件市场', link: '' },
+            { text: 'Gitee', link: '' },
             {
                 text: 'Github',
                 link: 'https://github.com/2460392754/uniapp-router-view-loader'
             }
         ],
-        sidebarDepth: 2,
+
+        sidebarDepth: 1,
         sidebar: [
             {
                 text: '指南',
-                link: '/guide/',
+                // link: '/guide/',
                 children: [
                     '/guide/introduce',
                     '/guide/install',
@@ -55,6 +57,18 @@ export default defineUserConfig<DefaultThemeOptions>({
                     '/guide/use',
                     '/guide/precautions'
                 ]
+            },
+            {
+                text: '更新日志',
+                link: '/changeLog'
+            },
+            {
+                text: '关于我',
+                link: '/aboutMe'
+            },
+            {
+                text: '实现原理',
+                children: []
             }
         ]
     }

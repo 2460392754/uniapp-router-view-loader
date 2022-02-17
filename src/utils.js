@@ -246,7 +246,7 @@ export const print = function (type = 'log', msg) {
  * @param {*} ast
  * @returns
  */
-//  export const getClass = function (ast) {
+// export const getClass = function (ast) {
 //     const staticName = ast.attrsMap['class'];
 //     const dynamicName = ast.attrsMap[':class'];
 
@@ -265,7 +265,7 @@ export const print = function (type = 'log', msg) {
  * @param {Object} ast.attrsMap
  * @param {string} ast.attrsMap.class
  * @returns
-//
+ */
 // export const handleClassJoin = function (source, ast) {
 //     const classCode = getClass(ast)
 //     // const static = / class=('|").*?('|")/;

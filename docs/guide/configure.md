@@ -4,11 +4,16 @@ title: 配置
 description: 页面的描述
 ---
 
+<Modal />
+
 # 配置
 
-### Vue2 vue-cli
+### Vue2
 
 `vue.config.js`文件（没有就创建）
+
+:::: code-group
+::: code-group-item Vue-Cli
 
 ```js
 module.exports = {
@@ -30,9 +35,8 @@ module.exports = {
 };
 ```
 
-### Vue2 HBuilderX
-
-`vue.config.js`文件（没有就创建）
+:::
+::: code-group-item HBuilderX
 
 ```js
 module.exports = {
@@ -54,9 +58,15 @@ module.exports = {
 };
 ```
 
-### Vue3 vue-cli 或 HBuilderX
+:::
+::::
+
+### Vue3
 
 `vite.config.ts`文件（没有就创建）
+
+:::: code-group
+::: code-group-item Vue-Cli
 
 ```ts
 import { defineConfig } from 'vite';
@@ -72,6 +82,27 @@ export default defineConfig({
     ]
 });
 ```
+
+:::
+::: code-group-item HBuilderX
+
+```ts
+import { defineConfig } from 'vite';
+import uni from '@dcloudio/vite-plugin-uni';
+import { vitePlugin } from 'uniapp-router-view-loader';
+
+export default defineConfig({
+    plugins: [
+        uni(),
+        vitePlugin({
+            publicPath: './'
+        })
+    ]
+});
+```
+
+:::
+::::
 
 ### 配置参数
 
