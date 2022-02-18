@@ -3,8 +3,13 @@ home: true
 heroImage: https://vuejs.org/images/logo.png
 heroText: uniapp-router-view-loader
 tagline: 打造UniApp的专属插件
-actionText: 快速上手 →
-actionLink: /zh/guide/
+actions:
+    - text: 快速上手
+      link: /md/introduce
+      type: primary
+    # - text: 查看原理
+    #   link: /reference/config.html#theme
+    #   type: secondary
 features:
     - title: 简洁至上
       details: 极简的配置，极致的享受

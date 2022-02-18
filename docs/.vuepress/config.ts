@@ -7,7 +7,7 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
     lang: 'en-US',
     title: 'uniapp-router-view-loader',
     description: 'Just playing around',
-    base: '/',
+    base: '/uniapp-router-view-loader/',
 
     bundlerConfig: {
         viteOptions: {
@@ -36,7 +36,7 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
         logo: 'https://vuejs.org/images/logo.png',
         navbar: [
             { text: '首页', link: '/' },
-            { text: '指南', link: '/guide/introduce' },
+            { text: '配置', link: '/md/configure' },
             { text: '插件市场', link: '' },
             { text: 'Gitee', link: '' },
             {
@@ -45,30 +45,51 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
             }
         ],
 
-        sidebarDepth: 1,
+        // sidebarDepth: 2,
+        // sidebar: 'auto'
         sidebar: [
+            //     {
+            //         text: '指南',
+            //         children: [
+            //             '/guide/introduce',
+            //             '/guide/install',
+            //             '/guide/configure',
+            //             '/guide/use',
+            //             '/guide/precautions'
+            //         ]
+            //     },
             {
-                text: '指南',
-                children: [
-                    '/guide/introduce',
-                    '/guide/install',
-                    '/guide/configure',
-                    '/guide/use',
-                    '/guide/precautions'
-                ]
+                text: '介绍',
+                link: '/md/introduce'
+            },
+            {
+                text: '安装',
+                link: '/md/install'
+            },
+            {
+                text: '配置',
+                link: '/md/configure'
+            },
+            {
+                text: '使用',
+                link: '/md/use'
+            },
+            {
+                text: '注意事项',
+                link: '/md/precautions'
             },
             {
                 text: '更新日志',
-                link: '/changeLog'
+                link: '/md/changeLog'
             },
             {
                 text: '关于我',
-                link: '/aboutMe'
-            },
-            {
-                text: '实现原理',
-                children: []
+                link: '/md/aboutMe'
             }
+            // {
+            //     text: '实现原理',
+            //     children: []
+            // }
         ]
     }
 });

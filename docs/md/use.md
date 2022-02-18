@@ -10,7 +10,7 @@ description: 页面的描述
 
 ::: tip
 避免因为插件的处理规则对你产生困扰，请查看
-[常见问题](./precautions.md)
+[注意事项](./precautions.md)
 :::
 
 ## 基本

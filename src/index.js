@@ -1,7 +1,7 @@
 import * as Utils from './utils'
 import * as Config from './config'
 
-let addLabel = {
+const addLabel = {
     header: [],
     footer: []
 }
@@ -35,7 +35,7 @@ function handleAppVue() {
     const handleLabelList = Utils.handleGetTemplateHeaderOrFooterLabelCode(labelList)
 
     source = handleAppRes.source
-    addLabel = Object.assign(addLabel, handleLabelList)
+    Object.assign(addLabel, handleLabelList)
 
     return source;
 }
@@ -56,7 +56,7 @@ function handleRouteFile(source, path) {
 }
 
 /**
- * webpack
+ * webpack loader
  * @param {string} source 
  * @returns 
  */
@@ -77,13 +77,11 @@ export default function (source) {
 }
 
 /**
- * vite
+ * vite plugin
  * @returns 
  */
 export function vitePlugin(opts) {
     const { config, routeFilePathRegList } = getConfigure(opts)
-
-    process.env.UNI_PLATFORM = 'mp-weixin'
 
     return {
         name: Config.name,
@@ -92,7 +90,11 @@ export function vitePlugin(opts) {
         transform(source, path) {
             // 匹配 App.vue
             if (path === Utils.getPath([config.publicPath, '/App.vue'])) {
+                const env = process.env.UNI_PLATFORM;
+
+                process.env.UNI_PLATFORM = 'vite'
                 source = handleAppVue(source)
+                process.env.UNI_PLATFORM = env
 
                 return { code: source }
             }

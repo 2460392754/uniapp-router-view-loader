@@ -18,7 +18,7 @@ export const getPath = (filePath) => {
 
 /**
  * 获取 文件匹配正则（vue或nvue文件）
- * @param {string} path 
+ * @param {string} publicPath 
  * @param {string} path 
  * @returns 
  */
@@ -35,8 +35,9 @@ export const getFileMatchReg = function (publicPath, path) {
  */
 export const getRouteFileMatchRegAll = function (config) {
     try {
-        const str = Jsonminify(Fs.readFileSync(getPath([config.publicPath, './pages.json']), 'utf8'))
-        const { pages, subPackages = [] } = JSON.parse(str);
+        const jsonStr = Fs.readFileSync(getPath([config.publicPath, './pages.json']), 'utf8')
+        // 移除注释
+        const { pages, subPackages = [] } = JSON.parse(jsonStr.replace(/\/\/[ \S\t]+/g, ''))
         const list = [];
 
         pages.forEach(({ path }) => {
@@ -119,6 +120,7 @@ export const handleAppTemplateAddCode = function (source) {
         case 'mp-lark':
         case 'quickapp-webview':
         case 'app-plus':
+        case 'vite':
             source = source.replace(/<template>[\s\S]+<\/template>/, s => {
                 addCode = s;
                 return '';
