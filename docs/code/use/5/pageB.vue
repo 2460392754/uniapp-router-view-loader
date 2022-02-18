@@ -21,7 +21,7 @@ export default {
     data() {
         return {
             provideData: {
-                refs: this.$refs
+                $refs: this.$refs
             }
         };
     }
