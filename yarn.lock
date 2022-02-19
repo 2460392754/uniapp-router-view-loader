@@ -1234,6 +1234,14 @@
   resolved "https://pocky-npm.pkg.coding.net/npm/uniapp-router-view-loader/__tarballs/@tootallnate/once/1.1.2/__path/npm/@tootallnate/once/-/once-1.1.2/ccb91445360179a04e7fe6aff78c00ffc1eeaf82.tgz#ccb91445360179a04e7fe6aff78c00ffc1eeaf82"
   integrity sha512-RbzJvlNzmRq5c3O09UipeuXno4tA1FE6ikOjxZK0tuxVv3412l64l5t1W5pj4+rJq9vpkm/kwiR07aZXnsKPxw==
 
+"@ts-type/package-dts@^1.0.58":
+  version "1.0.58"
+  resolved "https://pocky-npm.pkg.coding.net/npm/uniapp-router-view-loader/__tarballs/@ts-type/package-dts/1.0.58/__path/npm/@ts-type/package-dts/-/package-dts-1.0.58/75f6fdf5f1e8f262a5081b90346439b4c4bc8d01.tgz#75f6fdf5f1e8f262a5081b90346439b4c4bc8d01"
+  integrity sha512-Ry5RPZDAnSz/gyLtjd2a2yNC07CZ/PCOsuDzYj3phOolIgEH68HXRw6SbsDlavnVUEenDYj5GUM10gQ5iVEbVQ==
+  dependencies:
+    "@types/semver" "^7.3.9"
+    ts-type "^2.1.4"
+
 "@types/babel__core@^7.0.0", "@types/babel__core@^7.1.14":
   version "7.1.18"
   resolved "https://pocky-npm.pkg.coding.net/npm/uniapp-router-view-loader/__tarballs/@types/babel__core/7.1.18/__path/npm/@types/babel__core/-/babel__core-7.1.18/1a29abcc411a9c05e2094c98f9a1b7da6cdf49f8.tgz#1a29abcc411a9c05e2094c98f9a1b7da6cdf49f8"
@@ -1750,6 +1758,16 @@
   version "1.0.19"
   resolved "https://pocky-npm.pkg.coding.net/npm/uniapp-router-view-loader/__tarballs/@wessberg/stringutil/1.0.19/__path/npm/@wessberg/stringutil/-/stringutil-1.0.19/baadcb6f4471fe2d46462a7d7a8294e4b45b29ad.tgz#baadcb6f4471fe2d46462a7d7a8294e4b45b29ad"
   integrity sha512-9AZHVXWlpN8Cn9k5BC/O0Dzb9E9xfEMXzYrNunwvkUTvuK7xgQPVRZpLo+jWCOZ5r8oBa8NIrHuPEu1hzbb6bg==
+
+"@yarn-tool/resolve-package@^1.0.40":
+  version "1.0.42"
+  resolved "https://pocky-npm.pkg.coding.net/npm/uniapp-router-view-loader/__tarballs/@yarn-tool/resolve-package/1.0.42/__path/npm/@yarn-tool/resolve-package/-/resolve-package-1.0.42/4a72c1a77b7035dc86250744d2cdbc16292bc4f8.tgz#4a72c1a77b7035dc86250744d2cdbc16292bc4f8"
+  integrity sha512-1BAsoiD6jGAaPc7mRH0UxIVXgRSTv7fnhwfKkaFUYpqsU4ZR7KIigZTMcb2bujtlzKQbNneMPQGjiqe3F8cmlw==
+  dependencies:
+    "@ts-type/package-dts" "^1.0.58"
+    pkg-dir "< 6 >= 5"
+    tslib "^2.3.1"
+    upath2 "^3.1.12"
 
 abab@^2.0.3, abab@^2.0.5:
   version "2.0.5"
@@ -2928,6 +2946,15 @@ find-cache-dir@^2.0.0:
     make-dir "^2.0.0"
     pkg-dir "^3.0.0"
 
+find-cache-dir@^3.3.2:
+  version "3.3.2"
+  resolved "https://pocky-npm.pkg.coding.net/npm/uniapp-router-view-loader/__tarballs/find-cache-dir/3.3.2/__path/npm/find-cache-dir/-/find-cache-dir-3.3.2/b30c5b6eff0730731aea9bbd9dbecbd80256d64b.tgz#b30c5b6eff0730731aea9bbd9dbecbd80256d64b"
+  integrity sha512-wXZV5emFEjrridIgED11OoUKLxiYjAcqot/NJdAkOhlJ+vGzwhOAfcG5OX1jP+S0PcjEn8bdMJv+g2jwQ3Onig==
+  dependencies:
+    commondir "^1.0.1"
+    make-dir "^3.0.2"
+    pkg-dir "^4.1.0"
+
 find-up@^3.0.0:
   version "3.0.0"
   resolved "https://pocky-npm.pkg.coding.net/npm/uniapp-router-view-loader/__tarballs/find-up/3.0.0/__path/npm/find-up/-/find-up-3.0.0/49169f1d7993430646da61ecc5ae355c21c97b73.tgz#49169f1d7993430646da61ecc5ae355c21c97b73"
@@ -2941,6 +2968,14 @@ find-up@^4.0.0, find-up@^4.1.0:
   integrity sha512-PpOwAdQ/YlXQ2vj8a3h8IipDuYRi3wceVQQGYWxNINccq40Anw7BlsEXCMbt1Zt+OLA6Fq9suIpIWD0OsnISlw==
   dependencies:
     locate-path "^5.0.0"
+    path-exists "^4.0.0"
+
+find-up@^5.0.0:
+  version "5.0.0"
+  resolved "https://pocky-npm.pkg.coding.net/npm/uniapp-router-view-loader/__tarballs/find-up/5.0.0/__path/npm/find-up/-/find-up-5.0.0/4c92819ecb7083561e4f4a240a86be5198f536fc.tgz#4c92819ecb7083561e4f4a240a86be5198f536fc"
+  integrity sha512-78/PXT1wlLLDgTzDs7sjq9hzz0vXD+zn+7wypEe4fXQxCmdmqfGsEPQxmiCSQI3ajFV91bVSsvNtrJRiW6nGng==
+  dependencies:
+    locate-path "^6.0.0"
     path-exists "^4.0.0"
 
 form-data@^3.0.0:
@@ -3928,11 +3963,6 @@ jsonfile@^6.0.1:
   optionalDependencies:
     graceful-fs "^4.1.6"
 
-jsonminify@^0.4.2:
-  version "0.4.2"
-  resolved "https://registry.npmmirror.com/jsonminify/-/jsonminify-0.4.2.tgz#fe6fb09391227e856f8c7c0761ff11b497b61fe8"
-  integrity sha512-mEtP5ECD0293D+s45JhDutqF5mFCkWY8ClrPFxjSFR2KUoantofky7noSzyKnAnD9Gd8pXHZSUd5bgzLDUBbfA==
-
 kind-of@^6.0.0, kind-of@^6.0.2:
   version "6.0.3"
   resolved "https://pocky-npm.pkg.coding.net/npm/uniapp-router-view-loader/__tarballs/kind-of/6.0.3/__path/npm/kind-of/-/kind-of-6.0.3/07c05034a6c349fa06e24fa35aa76db4580ce4dd.tgz#07c05034a6c349fa06e24fa35aa76db4580ce4dd"
@@ -3988,6 +4018,13 @@ locate-path@^5.0.0:
   dependencies:
     p-locate "^4.1.0"
 
+locate-path@^6.0.0:
+  version "6.0.0"
+  resolved "https://pocky-npm.pkg.coding.net/npm/uniapp-router-view-loader/__tarballs/locate-path/6.0.0/__path/npm/locate-path/-/locate-path-6.0.0/55321eb309febbc59c4801d931a72452a681d286.tgz#55321eb309febbc59c4801d931a72452a681d286"
+  integrity sha512-iPZK6eYjbxRu3uB4/WZ3EsEIMJFMqAoopl3R+zuq0UjcAm/MO6KCweDgPfP3elTztoKP3KtnVHxTn2NHBSDVUw==
+  dependencies:
+    p-locate "^5.0.0"
+
 lodash.debounce@^4.0.8:
   version "4.0.8"
   resolved "https://pocky-npm.pkg.coding.net/npm/uniapp-router-view-loader/__tarballs/lodash.debounce/4.0.8/__path/npm/lodash.debounce/-/lodash.debounce-4.0.8/82d79bff30a67c4005ffd5e2515300ad9ca4d7af.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
@@ -4028,7 +4065,7 @@ make-dir@^2.0.0, make-dir@^2.1.0:
     pify "^4.0.1"
     semver "^5.6.0"
 
-make-dir@^3.0.0:
+make-dir@^3.0.0, make-dir@^3.0.2:
   version "3.1.0"
   resolved "https://pocky-npm.pkg.coding.net/npm/uniapp-router-view-loader/__tarballs/make-dir/3.1.0/__path/npm/make-dir/-/make-dir-3.1.0/415e967046b3a7f1d185277d84aa58203726a13f.tgz#415e967046b3a7f1d185277d84aa58203726a13f"
   integrity sha512-g3FeP20LNwhALb/6Cz6Dd4F2ngze0jz7tbzrD2wAV+o9FeNHe4rL+yK2md0J/fiSf1sa1ADhXqi5+oVwOM/eGw==
@@ -4302,6 +4339,13 @@ p-limit@^2.0.0, p-limit@^2.2.0:
   dependencies:
     p-try "^2.0.0"
 
+p-limit@^3.0.2:
+  version "3.1.0"
+  resolved "https://pocky-npm.pkg.coding.net/npm/uniapp-router-view-loader/__tarballs/p-limit/3.1.0/__path/npm/p-limit/-/p-limit-3.1.0/e1daccbe78d0d1388ca18c64fea38e3e57e3706b.tgz#e1daccbe78d0d1388ca18c64fea38e3e57e3706b"
+  integrity sha512-TYOanM3wGwNGsZN2cVTYPArw454xnXj5qmWF1bEoAc4+cU/ol7GVh7odevjp1FNHduHc3KZMcFduxU5Xc6uJRQ==
+  dependencies:
+    yocto-queue "^0.1.0"
+
 p-locate@^3.0.0:
   version "3.0.0"
   resolved "https://pocky-npm.pkg.coding.net/npm/uniapp-router-view-loader/__tarballs/p-locate/3.0.0/__path/npm/p-locate/-/p-locate-3.0.0/322d69a05c0264b25997d9f40cd8a891ab0064a4.tgz#322d69a05c0264b25997d9f40cd8a891ab0064a4"
@@ -4315,6 +4359,13 @@ p-locate@^4.1.0:
   integrity sha512-R79ZZ/0wAxKGu3oYMlz8jy/kbhsNrS7SKZ7PxEHBgJ5+F2mtFW2fK2cOtBh1cHYkQsbzFV7I+EoRKe6Yt0oK7A==
   dependencies:
     p-limit "^2.2.0"
+
+p-locate@^5.0.0:
+  version "5.0.0"
+  resolved "https://pocky-npm.pkg.coding.net/npm/uniapp-router-view-loader/__tarballs/p-locate/5.0.0/__path/npm/p-locate/-/p-locate-5.0.0/83c8315c6785005e3bd021839411c9e110e6d834.tgz#83c8315c6785005e3bd021839411c9e110e6d834"
+  integrity sha512-LaNjtRWUBY++zB5nE/NwcaoMylSPk+S+ZHNB1TzdbMJMny6dynpAGt7X/tl/QYq3TIeE6nxHppbo2LGymrG5Pw==
+  dependencies:
+    p-limit "^3.0.2"
 
 p-try@^2.0.0:
   version "2.2.0"
@@ -4356,6 +4407,13 @@ path-is-absolute@^1.0.0:
   resolved "https://pocky-npm.pkg.coding.net/npm/uniapp-router-view-loader/__tarballs/path-is-absolute/1.0.1/__path/npm/path-is-absolute/-/path-is-absolute-1.0.1/174b9268735534ffbc7ace6bf53a5a9e1b5c5f5f.tgz#174b9268735534ffbc7ace6bf53a5a9e1b5c5f5f"
   integrity sha1-F0uSaHNVNP+8es5r9TpanhtcX18=
 
+path-is-network-drive@^1.0.13:
+  version "1.0.13"
+  resolved "https://pocky-npm.pkg.coding.net/npm/uniapp-router-view-loader/__tarballs/path-is-network-drive/1.0.13/__path/npm/path-is-network-drive/-/path-is-network-drive-1.0.13/c9aa0183eb72c328aa83f43def93ddcb9d7ec4d4.tgz#c9aa0183eb72c328aa83f43def93ddcb9d7ec4d4"
+  integrity sha512-Hg74mRN6mmXV+gTm3INjFK40ncAmC/Lo4qoQaSZ+GT3hZzlKdWQSqAjqyPeW0SvObP2W073WyYEBWY9d3wOm3A==
+  dependencies:
+    tslib "^2.3.1"
+
 path-key@^3.0.0, path-key@^3.1.0:
   version "3.1.1"
   resolved "https://pocky-npm.pkg.coding.net/npm/uniapp-router-view-loader/__tarballs/path-key/3.1.1/__path/npm/path-key/-/path-key-3.1.1/581f6ade658cbba65a0d3380de7753295054f375.tgz#581f6ade658cbba65a0d3380de7753295054f375"
@@ -4365,6 +4423,13 @@ path-parse@^1.0.7:
   version "1.0.7"
   resolved "https://pocky-npm.pkg.coding.net/npm/uniapp-router-view-loader/__tarballs/path-parse/1.0.7/__path/npm/path-parse/-/path-parse-1.0.7/fbc114b60ca42b30d9daf5858e4bd68bbedb6735.tgz#fbc114b60ca42b30d9daf5858e4bd68bbedb6735"
   integrity sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==
+
+path-strip-sep@^1.0.10:
+  version "1.0.10"
+  resolved "https://pocky-npm.pkg.coding.net/npm/uniapp-router-view-loader/__tarballs/path-strip-sep/1.0.10/__path/npm/path-strip-sep/-/path-strip-sep-1.0.10/2be4e789406b298af8709ff79af716134b733b98.tgz#2be4e789406b298af8709ff79af716134b733b98"
+  integrity sha512-JpCy+8LAJQQTO1bQsb/84s1g+/Stm3h39aOpPRBQ/paMUGVPPZChLTOTKHoaCkc/6sKuF7yVsnq5Pe1S6xQGcA==
+  dependencies:
+    tslib "^2.3.1"
 
 path-type@^4.0.0:
   version "4.0.0"
@@ -4391,6 +4456,13 @@ pirates@^4.0.4, pirates@^4.0.5:
   resolved "https://pocky-npm.pkg.coding.net/npm/uniapp-router-view-loader/__tarballs/pirates/4.0.5/__path/npm/pirates/-/pirates-4.0.5/feec352ea5c3268fb23a37c702ab1699f35a5f3b.tgz#feec352ea5c3268fb23a37c702ab1699f35a5f3b"
   integrity sha512-8V9+HQPupnaXMA23c5hvl69zXvTwTzyAYasnkb0Tts4XvO4CliqONMOnvlq26rkhLC3nWDFBJf73LU1e1VZLaQ==
 
+"pkg-dir@< 6 >= 5":
+  version "5.0.0"
+  resolved "https://pocky-npm.pkg.coding.net/npm/uniapp-router-view-loader/__tarballs/pkg-dir/5.0.0/__path/npm/pkg-dir/-/pkg-dir-5.0.0/a02d6aebe6ba133a928f74aec20bafdfe6b8e760.tgz#a02d6aebe6ba133a928f74aec20bafdfe6b8e760"
+  integrity sha512-NPE8TDbzl/3YQYY7CSS228s3g2ollTFnc+Qi3tqmqJp9Vg2ovUpixcJEo2HJScN2Ez+kEaal6y70c0ehqJBJeA==
+  dependencies:
+    find-up "^5.0.0"
+
 pkg-dir@^3.0.0:
   version "3.0.0"
   resolved "https://pocky-npm.pkg.coding.net/npm/uniapp-router-view-loader/__tarballs/pkg-dir/3.0.0/__path/npm/pkg-dir/-/pkg-dir-3.0.0/2749020f239ed990881b1f71210d51eb6523bea3.tgz#2749020f239ed990881b1f71210d51eb6523bea3"
@@ -4398,7 +4470,7 @@ pkg-dir@^3.0.0:
   dependencies:
     find-up "^3.0.0"
 
-pkg-dir@^4.2.0:
+pkg-dir@^4.1.0, pkg-dir@^4.2.0:
   version "4.2.0"
   resolved "https://pocky-npm.pkg.coding.net/npm/uniapp-router-view-loader/__tarballs/pkg-dir/4.2.0/__path/npm/pkg-dir/-/pkg-dir-4.2.0/f099133df7ede422e81d1d8448270eeb3e4261f3.tgz#f099133df7ede422e81d1d8448270eeb3e4261f3"
   integrity sha512-HRDzbaKjC+AOWVXxAU/x54COGeIv9eb+6CkDSQoNTt4XyWoIJvuPsXizxu/Fr23EiekbtZwmh1IcIG/l/a10GQ==
@@ -4595,7 +4667,7 @@ rimraf@^3.0.0:
 
 rollup-plugin-ts@^2.0.5:
   version "2.0.5"
-  resolved "https://pocky-npm.pkg.coding.net/npm/uniapp-router-view-loader/__tarballs/rollup-plugin-ts/2.0.5/__path/npm/rollup-plugin-ts/-/rollup-plugin-ts-2.0.5/35a23bbcd24deb8c5594e89a8fb1a7cdab3fa5c4.tgz#35a23bbcd24deb8c5594e89a8fb1a7cdab3fa5c4"
+  resolved "https://pocky-npm.pkg.coding.net/npm/uniapp-router-view-loader/rollup-plugin-ts/-/rollup-plugin-ts-2.0.5/35a23bbcd24deb8c5594e89a8fb1a7cdab3fa5c4.tgz#35a23bbcd24deb8c5594e89a8fb1a7cdab3fa5c4"
   integrity sha512-yLfu46XsheAEDs+OxCMnHszble9pYwGYDML82lpMw3x/65kgwd9UQSkPX0HZGk+6L+MN8hFgqeh+SPmv+uOz1w==
   dependencies:
     "@rollup/pluginutils" "^4.1.2"
@@ -4607,6 +4679,18 @@ rollup-plugin-ts@^2.0.5:
     crosspath "1.0.0"
     magic-string "^0.25.7"
     ts-clone-node "^0.3.30"
+    tslib "^2.3.1"
+
+rollup-plugin-typescript2@^0.31.2:
+  version "0.31.2"
+  resolved "https://pocky-npm.pkg.coding.net/npm/uniapp-router-view-loader/__tarballs/rollup-plugin-typescript2/0.31.2/__path/npm/rollup-plugin-typescript2/-/rollup-plugin-typescript2-0.31.2/463aa713a7e2bf85b92860094b9f7fb274c5a4d8.tgz#463aa713a7e2bf85b92860094b9f7fb274c5a4d8"
+  integrity sha512-hRwEYR1C8xDGVVMFJQdEVnNAeWRvpaY97g5mp3IeLnzhNXzSVq78Ye/BJ9PAaUfN4DXa/uDnqerifMOaMFY54Q==
+  dependencies:
+    "@rollup/pluginutils" "^4.1.2"
+    "@yarn-tool/resolve-package" "^1.0.40"
+    find-cache-dir "^3.3.2"
+    fs-extra "^10.0.0"
+    resolve "^1.20.0"
     tslib "^2.3.1"
 
 rollup-plugin-uglify@^6.0.4:
@@ -5015,6 +5099,14 @@ ts-debounce@^4.0.0:
   resolved "https://pocky-npm.pkg.coding.net/npm/uniapp-router-view-loader/__tarballs/ts-debounce/4.0.0/__path/npm/ts-debounce/-/ts-debounce-4.0.0/33440ef64fab53793c3d546a8ca6ae539ec15841.tgz#33440ef64fab53793c3d546a8ca6ae539ec15841"
   integrity sha512-+1iDGY6NmOGidq7i7xZGA4cm8DAa6fqdYcvO5Z6yBevH++Bdo9Qt/mN0TzHUgcCcKv1gmh9+W5dHqz8pMWbCbg==
 
+ts-type@^2.1.4:
+  version "2.1.4"
+  resolved "https://pocky-npm.pkg.coding.net/npm/uniapp-router-view-loader/__tarballs/ts-type/2.1.4/__path/npm/ts-type/-/ts-type-2.1.4/d268d52ac054ef3076bf1c3b2fde0d4d5496e6a3.tgz#d268d52ac054ef3076bf1c3b2fde0d4d5496e6a3"
+  integrity sha512-wnajiiIMhn/RHJ1oPld95siKmMJrOgaT6+rMmC8vO1LORgDFEzKP2nBmEFM5b4XVe7Q0J5KcU9oRJFzju7UzrA==
+  dependencies:
+    tslib "^2.3.1"
+    typedarray-dts "^1.0.0"
+
 tslib@^2.3.1:
   version "2.3.1"
   resolved "https://pocky-npm.pkg.coding.net/npm/uniapp-router-view-loader/__tarballs/tslib/2.3.1/__path/npm/tslib/-/tslib-2.3.1/e8a335add5ceae51aa261d32a490158ef042ef01.tgz#e8a335add5ceae51aa261d32a490158ef042ef01"
@@ -5037,12 +5129,22 @@ type-fest@^0.21.3:
   resolved "https://pocky-npm.pkg.coding.net/npm/uniapp-router-view-loader/__tarballs/type-fest/0.21.3/__path/npm/type-fest/-/type-fest-0.21.3/d260a24b0198436e133fa26a524a6d65fa3b2e37.tgz#d260a24b0198436e133fa26a524a6d65fa3b2e37"
   integrity sha512-t0rzBq87m3fVcduHDUFhKmyyX+9eo6WQjZvf51Ea/M0Q7+T374Jp1aUiyUl0GKxp8M/OETVHSDvmkyPgvX+X2w==
 
+typedarray-dts@^1.0.0:
+  version "1.0.0"
+  resolved "https://pocky-npm.pkg.coding.net/npm/uniapp-router-view-loader/__tarballs/typedarray-dts/1.0.0/__path/npm/typedarray-dts/-/typedarray-dts-1.0.0/9dec9811386dbfba964c295c2606cf9a6b982d06.tgz#9dec9811386dbfba964c295c2606cf9a6b982d06"
+  integrity sha512-Ka0DBegjuV9IPYFT1h0Qqk5U4pccebNIJCGl8C5uU7xtOs+jpJvKGAY4fHGK25hTmXZOEUl9Cnsg5cS6K/b5DA==
+
 typedarray-to-buffer@^3.1.5:
   version "3.1.5"
   resolved "https://pocky-npm.pkg.coding.net/npm/uniapp-router-view-loader/__tarballs/typedarray-to-buffer/3.1.5/__path/npm/typedarray-to-buffer/-/typedarray-to-buffer-3.1.5/a97ee7a9ff42691b9f783ff1bc5112fe3fca9080.tgz#a97ee7a9ff42691b9f783ff1bc5112fe3fca9080"
   integrity sha512-zdu8XMNEDepKKR+XYOXAVPtWui0ly0NtohUscw+UmaHiAWT8hrV1rr//H6V+0DvJ3OQ19S979M0laLfX8rm82Q==
   dependencies:
     is-typedarray "^1.0.0"
+
+typescript@^4.5.5:
+  version "4.5.5"
+  resolved "https://pocky-npm.pkg.coding.net/npm/uniapp-router-view-loader/__tarballs/typescript/4.5.5/__path/npm/typescript/-/typescript-4.5.5/d8c953832d28924a9e3d37c73d729c846c5896f3.tgz#d8c953832d28924a9e3d37c73d729c846c5896f3"
+  integrity sha512-TCTIul70LyWe6IJWT8QSYeA54WQe8EjQFU4wY52Fasj5UKx88LNYKCgBEHcOMOrFF1rKGbD8v/xcNWVUq9SymA==
 
 ua-parser-js@^1.0.2:
   version "1.0.2"
@@ -5101,6 +5203,15 @@ universalify@^2.0.0:
   version "2.0.0"
   resolved "https://pocky-npm.pkg.coding.net/npm/uniapp-router-view-loader/__tarballs/universalify/2.0.0/__path/npm/universalify/-/universalify-2.0.0/75a4984efedc4b08975c5aeb73f530d02df25717.tgz#75a4984efedc4b08975c5aeb73f530d02df25717"
   integrity sha512-hAZsKq7Yy11Zu1DE0OzWjw7nnLZmJZYTDZZyEFHZdUhV8FkH5MCfoU1XMaxXovpyW5nq5scPqq0ZDP9Zyl04oQ==
+
+upath2@^3.1.12:
+  version "3.1.12"
+  resolved "https://pocky-npm.pkg.coding.net/npm/uniapp-router-view-loader/__tarballs/upath2/3.1.12/__path/npm/upath2/-/upath2-3.1.12/441b3dfbadde21731017bd1b7beb169498efd0a9.tgz#441b3dfbadde21731017bd1b7beb169498efd0a9"
+  integrity sha512-yC3eZeCyCXFWjy7Nu4pgjLhXNYjuzuUmJiRgSSw6TJp8Emc+E4951HGPJf+bldFC5SL7oBLeNbtm1fGzXn2gxw==
+  dependencies:
+    path-is-network-drive "^1.0.13"
+    path-strip-sep "^1.0.10"
+    tslib "^2.3.1"
 
 upath@^2.0.1:
   version "2.0.1"
@@ -5370,3 +5481,8 @@ yargs@^16.2.0:
     string-width "^4.2.0"
     y18n "^5.0.5"
     yargs-parser "^20.2.2"
+
+yocto-queue@^0.1.0:
+  version "0.1.0"
+  resolved "https://pocky-npm.pkg.coding.net/npm/uniapp-router-view-loader/__tarballs/yocto-queue/0.1.0/__path/npm/yocto-queue/-/yocto-queue-0.1.0/0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
+  integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==

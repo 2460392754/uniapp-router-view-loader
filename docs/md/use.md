@@ -144,17 +144,49 @@ description: 页面的描述
 
 #### 组件级
 
+##### vue2
+
+使用工具提供的 `mixin` 文件在页面级的 `provide` 提供当前页面的 `$refs`。然后在页面的组件里使用对应的 `mixin` 文件注入相应的数据，即可实现任意组件内调用 `App.vue` 文件中注入的组件。
+
+组件文件里 `this.$urvl.$refs` ,可以直接访问页面文件里的 `$refs`
+
+为了抹平各平台差异，需要组件在 `$refs.xxxx` 后面加上 `$v` 指向组件实例
+
 :::: code-group
 ::: code-group-item App.vue
 @[code vue{1-4}](../code/use/5/App.vue)
 :::
 
 ::: code-group-item pageB.vue
-@[code vue{15-27}](../code/use/5/pageB.vue)
+@[code vue{8,12}](../code/use/5/pageB.vue)
 :::
 
 ::: code-group-item customSubmit.vue
-@[code vue{9,13-16}](../code/use/5/customSubmit.vue)
+@[code vue{8,11,15-18}](../code/use/5/customSubmit.vue)
+:::
+::::
+
+##### vue3
+
+:::: code-group
+::: code-group-item App.vue
+@[code vue{1-4,6}](../code/use/7/App.vue)
+:::
+
+::: code-group-item toast.vue
+@[code vue](../code/use/7/toast.vue)
+:::
+
+::: code-group-item main.ts
+@[code ts{3,8}](../code/use/7/main.ts)
+:::
+
+::: code-group-item pageA.vue
+@[code vue{8,12,26}](../code/use/7/pageA.vue)
+:::
+
+::: code-group-item customSubmit.vue
+@[code vue{7-8,10,14,17}](../code/use/7/customSubmit.vue)
 :::
 ::::
 

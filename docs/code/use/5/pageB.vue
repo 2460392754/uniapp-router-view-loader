@@ -5,25 +5,14 @@
 </template>
 
 <script>
+import { PageProvideMixin } from 'uniapp-router-view-loader/src/project/vue2';
 import CustomSubmit from './customSubmit.vue';
 
 export default {
+    mixins: [PageProvideMixin],
+
     components: {
         CustomSubmit
-    },
-
-    provide() {
-        return {
-            provideData: this.provideData
-        };
-    },
-
-    data() {
-        return {
-            provideData: {
-                $refs: this.$refs
-            }
-        };
     }
 };
 </script>

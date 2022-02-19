@@ -1,9 +1,8 @@
 import Path from 'path'
 import Fs from 'fs'
-import Jsonminify from 'jsonminify'
 import ErrorId from './errorId'
 import { parse } from 'node-html-parser'
-import { name } from './config'
+import { name } from '../config'
 
 // const reg = /^node-modules\/uview-ui\S+/
 
