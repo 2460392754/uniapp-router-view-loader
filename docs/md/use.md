@@ -186,7 +186,7 @@ description: 页面的描述
 :::
 
 ::: code-group-item customSubmit.vue
-@[code vue{7-8,10,14,17}](../code/use/7/customSubmit.vue)
+@[code vue{7,10,14,17}](../code/use/7/customSubmit.vue)
 :::
 ::::
 
