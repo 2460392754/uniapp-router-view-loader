@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { ComponentInjectMixin } from 'uniapp-router-view-loader/src/project/vue2';
+import { ComponentInjectMixin } from 'uniapp-router-view-loader/dist/project/vue2';
 
 export default {
     mixins: [ComponentInjectMixin],

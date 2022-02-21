@@ -30,6 +30,12 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
         ]
     ],
 
+    markdown: {
+        extractHeaders: {
+            level: [2, 3, 4]
+        }
+    },
+
     theme: 'vuepress-theme-quicksand',
     themeConfig: {
         contributors: false,
@@ -45,47 +51,17 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
             }
         ],
 
-        // sidebarDepth: 2,
-        // sidebar: 'auto'
+        sidebarDepth: 4,
         sidebar: [
-            //     {
-            //         text: '指南',
-            //         children: [
-            //             '/guide/introduce',
-            //             '/guide/install',
-            //             '/guide/configure',
-            //             '/guide/use',
-            //             '/guide/precautions'
-            //         ]
-            //     },
-            {
-                text: '介绍',
-                link: '/md/introduce'
-            },
-            {
-                text: '安装',
-                link: '/md/install'
-            },
-            {
-                text: '配置',
-                link: '/md/configure'
-            },
-            {
-                text: '使用',
-                link: '/md/use'
-            },
-            {
-                text: '注意事项',
-                link: '/md/precautions'
-            },
-            {
-                text: '更新日志',
-                link: '/md/changeLog'
-            },
-            {
-                text: '关于我',
-                link: '/md/aboutMe'
-            }
+            '/md/introduce',
+            '/md/install',
+            '/md/configure',
+            '/md/use',
+            '/md/precautions',
+            '/md/changeLog',
+            '/md/aboutMe',
+            '/md/followUpPlan'
+
             // {
             //     text: '实现原理',
             //     children: []

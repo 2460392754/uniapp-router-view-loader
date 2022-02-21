@@ -15,7 +15,7 @@ description: 页面的描述
 
 ## 基本
 
-#### 注入
+### 注入
 
 :::: code-group
 ::: code-group-item App.vue
@@ -25,7 +25,7 @@ description: 页面的描述
 :::
 ::::
 
-#### 使用
+### 使用
 
 :::: code-group
 ::: code-group-item 运行前 pageA.vue 项目文件代码
@@ -44,7 +44,7 @@ description: 页面的描述
 
 支持使用 `easycom` 和 `Vue.component` 注册的全局组件
 
-#### Vue.component
+### Vue.component
 
 :::: code-group
 ::: code-group-item main.js
@@ -64,7 +64,7 @@ description: 页面的描述
 :::
 ::::
 
-#### easycom
+### easycom
 
 使用 [uView 2](https://www.uviewui.com) 框架为例
 
@@ -130,7 +130,7 @@ description: 页面的描述
 
 使用 [uView 2](https://www.uviewui.com) 框架为例
 
-#### 页面级
+### 页面级
 
 :::: code-group
 ::: code-group-item App.vue
@@ -142,9 +142,9 @@ description: 页面的描述
 :::
 ::::
 
-#### 组件级
+### 组件级
 
-##### vue2
+#### vue2
 
 使用工具提供的 `mixin` 文件在页面级的 `provide` 提供当前页面的 `$refs`。然后在页面的组件里使用对应的 `mixin` 文件注入相应的数据，即可实现任意组件内调用 `App.vue` 文件中注入的组件。
 
@@ -166,7 +166,9 @@ description: 页面的描述
 :::
 ::::
 
-##### vue3
+#### vue3
+
+使用工具内部封装的 `pageProvide` 和 `componentInject` 工具，实现跨组件调用
 
 :::: code-group
 ::: code-group-item App.vue

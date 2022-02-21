@@ -7,7 +7,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { ToastOpts } from './toast.vue';
-import { componentInject } from 'uniapp-router-view-loader/src/project/vue3';
+import { componentInject } from 'uniapp-router-view-loader/dist/project/vue3';
 
 export default defineComponent({
     setup() {

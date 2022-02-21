@@ -128,16 +128,23 @@ export default {
     }
 
     > .footer {
+        color: #fff;
         background-color: var(--c-text-accent);
         padding: 0.9rem;
         text-align: center;
-        color: #fff;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
         margin: 0.9rem;
         border-radius: 12px;
+    }
+}
+
+.dark {
+    .modal-wrapper {
+        color: var(--c-text);
+        background-color: #273044;
     }
 }
 </style>
