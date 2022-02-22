@@ -1,8 +1,8 @@
 ---
 home: true
-heroImage: https://vuejs.org/images/logo.png
+heroImage: /images/logo.png
 heroText: uniapp-router-view-loader
-tagline: 打造UniApp的专属插件
+tagline: 打造uniapp的专属插件
 actions:
     - text: 快速上手
       link: /md/introduce
@@ -23,5 +23,5 @@ features:
       details: 类模版功能
     - title: 高效率
       details: 几行代码就可实现理想功能
-footer: MIT Licensed | Copyright © 2018-present Evan You
+footer: MIT Licensed | Copyright © 2022
 ---

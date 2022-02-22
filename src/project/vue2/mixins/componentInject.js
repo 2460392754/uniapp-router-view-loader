@@ -9,8 +9,6 @@ export default {
     mounted() {
         const refs = this[provideKey].$refs
 
-        console.log(refs)
-
         Object.keys(refs).forEach(k => {
             refs[k].$v = refs[k].$vm === undefined ? refs[k] : refs[k].$vm;
         })
