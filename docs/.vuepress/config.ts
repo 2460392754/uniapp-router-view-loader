@@ -39,7 +39,7 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
     theme: 'vuepress-theme-quicksand',
     themeConfig: {
         contributors: false,
-        logo: '/images/logo.png',
+        // logo: '/images/logo.png',
         navbar: [
             { text: '首页', link: '/' },
             { text: '配置', link: '/md/configure' },
