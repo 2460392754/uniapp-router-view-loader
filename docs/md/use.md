@@ -4,8 +4,6 @@ title: 使用
 description: 页面的描述
 ---
 
-<Modal />
-
 # 使用
 
 ::: tip

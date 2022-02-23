@@ -1,4 +1,5 @@
 ---
+layout: Layout
 home: true
 heroImage: /images/logo.png
 heroText: uniapp-router-view-loader
@@ -23,5 +24,7 @@ features:
       details: 类模版功能
     - title: 高效率
       details: 几行代码就可实现理想功能
-footer: MIT Licensed | Copyright © 2022
+footer: Copyright © 2022 | 浙ICP备19047959号-3
 ---
+
+<Modal />

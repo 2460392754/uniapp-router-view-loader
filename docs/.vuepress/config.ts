@@ -1,6 +1,8 @@
 import { defineUserConfig } from 'vuepress';
 import type { DefaultThemeOptions } from 'vuepress';
 import type { ViteBundlerOptions } from '@vuepress/bundler-vite';
+import path from 'path';
+import LinksData from './data/links';
 
 export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
     // 站点配置
@@ -36,7 +38,9 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
         }
     },
 
-    theme: 'vuepress-theme-quicksand',
+    // theme: 'vuepress-theme-quicksand',
+    theme: path.resolve(__dirname, './theme'),
+
     themeConfig: {
         contributors: false,
         // logo: '/images/logo.png',
@@ -48,6 +52,10 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
             {
                 text: 'Github',
                 link: 'https://github.com/2460392754/uniapp-router-view-loader'
+            },
+            {
+                text: '友情链接',
+                children: LinksData
             }
         ],
 

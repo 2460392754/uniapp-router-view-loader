@@ -4,8 +4,6 @@ title: 注意事项
 description: 页面的描述
 ---
 
-<Modal />
-
 # 注意事项
 
 ### 在 App.vue 中 template 标签里的内容修改后，页面内容没更新

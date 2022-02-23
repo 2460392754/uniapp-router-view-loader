@@ -4,8 +4,6 @@ title: 介绍
 description: 页面的描述
 ---
 
-<Modal />
-
 # 介绍
 
 ## 兼容性

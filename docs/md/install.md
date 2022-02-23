@@ -4,8 +4,6 @@ title: 安装
 description: 页面的描述
 ---
 
-<Modal />
-
 # 安装
 
 :::: code-group

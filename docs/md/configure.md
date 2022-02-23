@@ -4,8 +4,6 @@ title: 配置
 description: 页面的描述
 ---
 
-<Modal />
-
 # 配置
 
 ### Vue2
