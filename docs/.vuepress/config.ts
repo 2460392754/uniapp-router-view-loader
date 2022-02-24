@@ -14,6 +14,7 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
     bundlerConfig: {
         viteOptions: {
             // base: './'
+            plugins: []
         }
     },
 
