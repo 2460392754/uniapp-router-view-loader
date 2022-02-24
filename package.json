@@ -10,7 +10,7 @@
         "test:coverage": "jest --coverage",
         "demo:parseHtml": "babel-node ./demo/parseHtml.demo.js",
         "docs:dev": "vuepress dev docs",
-        "docs:build": "vuepress build docs && gzip ./docs/.vuepress/dist/**/*.js"
+        "docs:build": "vuepress build docs && gzip ./docs/.vuepress/dist/**/*.{html,css,js,svg}"
     },
     "author": "",
     "license": "ISC",
