@@ -49,7 +49,7 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
             { text: '首页', link: '/' },
             { text: '配置', link: '/md/configure' },
             { text: '插件市场', link: '' },
-            { text: 'Gitee', link: '' },
+            // { text: 'Gitee', link: '' },
             {
                 text: 'Github',
                 link: 'https://github.com/2460392754/uniapp-router-view-loader'
@@ -67,7 +67,7 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
             '/md/configure',
             '/md/use',
             '/md/precautions',
-            '/md/changeLog',
+            '/md/changelog',
             '/md/aboutMe',
             '/md/followUpPlan'
 
