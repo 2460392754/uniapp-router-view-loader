@@ -8,7 +8,6 @@
         "addV": "npm --no-git-tag-version version patch",
         "test": "jest",
         "test:coverage": "jest --coverage",
-        "demo:parseHtml": "babel-node ./demo/parseHtml.demo.js",
         "docs:dev": "node ./scripts/copyChangelog.js && vuepress dev docs",
         "docs:build": "node ./scripts/copyChangelog.js && vuepress build docs && node ./scripts/addBaiduStatistics.js && gzip ./docs/.vuepress/dist/**/*.{html,css,js,svg}",
         "zip:example": "node ./scripts/compressZipExample.js",
