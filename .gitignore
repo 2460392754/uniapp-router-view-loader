@@ -1,4 +1,5 @@
-/node_modules
+**/node_modules
+**/unpackage
 /demo
 /docs/.vuepress/.temp
 /docs/.vuepress/.cache
@@ -6,4 +7,4 @@
 
 /.idea
 **/.DS_Store
-/yarn-error.log
+**/yarn-error.log
