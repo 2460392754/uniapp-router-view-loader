@@ -1,12 +1,12 @@
 **/node_modules
+**/dist
 **/unpackage
-/demo
 /docs/.vuepress/.temp
 /docs/.vuepress/.cache
 /docs/.vuepress/dist
 
-/.idea
 **/DS_Store
+**/.DS_Store
 **/yarn-error.log
 /zip
 /temp
