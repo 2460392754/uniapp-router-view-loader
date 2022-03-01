@@ -5,6 +5,5 @@
 /docs/.vuepress/dist
 
 /.idea
-/.npmrc
 **/.DS_Store
 /yarn-error.log
