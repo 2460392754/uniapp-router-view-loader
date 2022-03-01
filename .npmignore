@@ -1,6 +1,10 @@
 /coverage
-/demo
 /test
 /docs
+/examples
+/zip
+/temp
+/scripts
+
 **/.DS_Store
 /yarn-error.log

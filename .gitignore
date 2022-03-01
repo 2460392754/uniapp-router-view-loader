@@ -1,9 +1,12 @@
-/node_modules
-/demo
+**/node_modules
+**/dist
+**/unpackage
 /docs/.vuepress/.temp
 /docs/.vuepress/.cache
 /docs/.vuepress/dist
 
-/.idea
+**/DS_Store
 **/.DS_Store
-/yarn-error.log
+**/yarn-error.log
+/zip
+/temp

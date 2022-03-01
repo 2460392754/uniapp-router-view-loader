@@ -9,8 +9,9 @@
         "test": "jest",
         "test:coverage": "jest --coverage",
         "demo:parseHtml": "babel-node ./demo/parseHtml.demo.js",
-        "docs:dev": "vuepress dev docs",
-        "docs:build": "vuepress build docs && node ./scripts/addBaiduStatistics.js && gzip ./docs/.vuepress/dist/**/*.{html,css,js,svg} "
+        "docs:dev": "node ./scripts/copyChangelog.js && vuepress dev docs",
+        "docs:build": "node ./scripts/copyChangelog.js && vuepress build docs && node ./scripts/addBaiduStatistics.js && gzip ./docs/.vuepress/dist/**/*.{html,css,js,svg}",
+        "example:zip": "node ./scripts/compressZipExample.js"
     },
     "author": "fty2460392754@gmail.com",
     "keywords": [
@@ -33,6 +34,9 @@
         "@rollup/plugin-json": "^4.1.0",
         "@types/jest": "^27.4.0",
         "@vuepress/plugin-search": "^2.0.0-beta.35",
+        "chalk": "4",
+        "compressing": "^1.5.1",
+        "dayjs": "^1.10.8",
         "gzip-cli": "^1.2.0",
         "jest": "^27.5.1",
         "rollup": "^2.67.2",

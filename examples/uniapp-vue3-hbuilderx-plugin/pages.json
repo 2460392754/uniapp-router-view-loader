@@ -1,0 +1,26 @@
+{
+    "easycom": {
+        "autoscan": true,
+        "custom": {
+            // uview-ui
+            "^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
+        }
+    },
+    "pages": [
+        //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+        {
+            "path": "pages/index/index"
+        },
+        {
+            "path": "pages/index/other"
+        }
+    ],
+    "globalStyle": {
+        "navigationBarTextStyle": "black",
+        "navigationBarTitleText": "",
+        "navigationBarBackgroundColor": "#F8F8F8",
+        "backgroundColor": "#f2f4f5",
+        "navigationStyle": "custom",
+        "transparentTitle": "always"
+    }
+}
