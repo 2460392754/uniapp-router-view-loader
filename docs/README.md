@@ -3,7 +3,7 @@ layout: Layout
 home: true
 heroImage: /images/logo.png
 heroText: uniapp-router-view-loader
-tagline: 打造uniapp的专属插件
+tagline: 打造uniapp的首个专属编译插件
 actions:
     - text: 快速上手
       link: /md/introduce
