@@ -8,3 +8,5 @@
 /.idea
 **/.DS_Store
 **/yarn-error.log
+/zip
+/temp
