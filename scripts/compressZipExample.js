@@ -1,3 +1,11 @@
+/*
+ * @Author: 2460392754@qq.com
+ * @Date: 2022-03-01 18:58:45
+ * @LastEditTime: 2022-03-02 01:00:43
+ * @Description: 压缩 `examples` 文件夹
+ * @FilePath: /uniapp-router-view-loader/scripts/compressZipExample.js
+ */
+
 const { version } = require('../package.json')
 const path = require("path");
 const fs = require("fs");
@@ -23,7 +31,7 @@ if (fs.existsSync(tempDir)) {
     fs.rmdirSync(tempDir, { recursive: true })
 }
 
-// 辅助 examples 文件夹中 非部分文件懂啊 temp 临时文件夹
+// 复制 examples 文件夹中的部分文件到 temp 临时文件夹中
 fse.copySync(exampleDir, tempDir, {
     filter: (src, dest) => {
         return !/\.git|node_modules|dist|unpackage/.test(src)

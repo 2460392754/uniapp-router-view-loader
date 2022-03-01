@@ -6,7 +6,7 @@ export default [
     {
         plugins: [
             json(),
-            uglify()
+            // uglify()
         ],
         input: './src/plugins/index.js', //入口文件
         output: {

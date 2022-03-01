@@ -1,5 +1,9 @@
-/**
- * 添加百度统计到 `index.html`
+/*
+ * @Author: 2460392754@qq.com
+ * @Date: 2022-03-01 14:41:14
+ * @LastEditTime: 2022-03-02 00:47:51
+ * @Description: 添加百度统计到 `index.html`
+ * @FilePath: /uniapp-router-view-loader/scripts/addBaiduStatistics.js
  */
 
 const Fs = require('fs');
