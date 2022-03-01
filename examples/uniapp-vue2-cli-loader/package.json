@@ -67,7 +67,7 @@
     "regenerator-runtime": "^0.12.1",
     "sass": "^1.49.0",
     "sass-loader": "^10.1.1",
-    "uniapp-router-view-loader": "^1.0.42",
+    "uniapp-router-view-loader": "^1.0.0",
     "uview-ui": "^2.0.23",
     "vue": "^2.6.11",
     "vuex": "^3.2.0"

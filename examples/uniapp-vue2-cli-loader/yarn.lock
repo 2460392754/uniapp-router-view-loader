@@ -10799,10 +10799,10 @@ unbox-primitive@^1.0.1:
     has-symbols "^1.0.2"
     which-boxed-primitive "^1.0.2"
 
-uniapp-router-view-loader@^1.0.42:
-  version "1.0.42"
-  resolved "https://pocky-npm.pkg.coding.net/npm/uniapp-router-view-loader/uniapp-router-view-loader/-/uniapp-router-view-loader-1.0.42/7ac79528db9629605b04fcb86396f19e38eea59c.tgz#7ac79528db9629605b04fcb86396f19e38eea59c"
-  integrity sha512-7oJHd/JqgDxitpt2seJBD1/N3cwfX8jR3Jxq/GIT9sqddMSdTV/8K9i1IdR+CXXMRjDPRduDDpNWoCGFBa4gFw==
+uniapp-router-view-loader@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmmirror.com/uniapp-router-view-loader/-/uniapp-router-view-loader-1.0.0.tgz#fc0672d6994d3908d4f30ca8a84ddd8a0292a47d"
+  integrity sha512-kexx2kgPCfNN0Ux9PP/lL7BwJIoKh0gx9J7R8ZYamfsdKIKaBTOHaVahrLZ2mmpNdm5yNTqHN08vBuWqEoYLfw==
   dependencies:
     node-html-parser "^5.2.0"
 

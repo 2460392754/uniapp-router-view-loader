@@ -7,11 +7,8 @@
 
 <script>
 import CustomSubmit from '../../components/customSubmit.vue';
-import { PageProvideMixin } from 'uniapp-router-view-loader/src/project/vue2';
 
 export default {
-    mixins: [PageProvideMixin],
-
     components: {
         CustomSubmit
     },

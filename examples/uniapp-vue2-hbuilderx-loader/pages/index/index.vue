@@ -8,11 +8,8 @@
 
 <script>
 import Submit from '../../components/submit.vue';
-import { PageProvideMixin } from 'uniapp-router-view-loader/src/project/vue2';
 
 export default {
-    mixins: [PageProvideMixin],
-
     components: {
         Submit
     },

@@ -8,14 +8,6 @@ Vue.use(uView)
 
 App.mpType = 'app'
 
-// #ifdef APP-PLUS
-console.log('componentInject APP-PLUS')
-// #endif
-
-// #ifdef H5
-console.log('componentInject H5')
-// #endif
-
 const app = new Vue({
     ...App
 })

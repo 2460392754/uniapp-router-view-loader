@@ -5,14 +5,10 @@
 </template>
 
 <script>
-import { ComponentInjectMixin } from 'uniapp-router-view-loader/src/project/vue2';
-
 export default {
-    mixins: [ComponentInjectMixin],
-
     methods: {
         onSubmit() {
-            this.$urvl.$refs.uToast.$v.show({
+            this.$root.$refs.uToast.show({
                 type: 'success',
                 message: '提交成功'
             });
