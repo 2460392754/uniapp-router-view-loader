@@ -10,14 +10,14 @@ description: 页面的描述
 ::: code-group-item NPM
 
 ```bash
-npm install uniapp-router-view-loader
+npm install uniapp-router-view-loader -D
 ```
 
 :::
 ::: code-group-item YARN
 
 ```bash
-yarn add uniapp-router-view-loader
+yarn add uniapp-router-view-loader -D
 ```
 
 :::
