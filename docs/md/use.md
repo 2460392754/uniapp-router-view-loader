@@ -132,17 +132,17 @@ description: 页面的描述
 
 :::: code-group
 ::: code-group-item App.vue
-@[code vue{1-4}](../code/use/5/App.vue)
+@[code vue{1-4}](../code/use/5-1/App.vue)
 :::
 
 ::: code-group-item pageA.vue
-@[code vue{11-15}](../code/use/5/pageA.vue)
+@[code vue{11-15}](../code/use/5-1/pageA.vue)
 :::
 ::::
 
 ### 组件级
 
-#### vue2
+<!-- #### vue2
 
 使用工具提供的 `mixin` 文件在页面级的 `provide` 提供当前页面的 `$refs`。然后在页面的组件里使用对应的 `mixin` 文件注入相应的数据，即可实现任意组件内调用 `App.vue` 文件中注入的组件。
 
@@ -161,6 +161,24 @@ description: 页面的描述
 
 ::: code-group-item customSubmit.vue
 @[code vue{8,11,15-18}](../code/use/5/customSubmit.vue)
+:::
+:::: -->
+
+#### vue2
+
+在组件文件里 `this.$root.$refs` ,可以直接访问页面文件里的 `$refs`
+
+:::: code-group
+::: code-group-item App.vue
+@[code vue{1-4}](../code/use/5-1/App.vue)
+:::
+
+::: code-group-item pageB.vue
+@[code vue{8,12}](../code/use/5-1/pageB.vue)
+:::
+
+::: code-group-item customSubmit.vue
+@[code vue{11-14}](../code/use/5-1/customSubmit.vue)
 :::
 ::::
 
