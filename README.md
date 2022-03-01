@@ -1,6 +1,9 @@
 # uniapp-router-view-loader
 
-[![license](https://img.shields.io/github/license/u2460392754/uniapp-router-view-loader?style=flat-square)](https://en.wikipedia.org/wiki/MIT_License)
+[![issues](https://img.shields.io/github/issues/2460392754/uniapp-router-view-loader?style=for-the-badge)](https://github.com/2460392754/uniapp-router-view-loader)
+[![forks](https://img.shields.io/github/forks/2460392754/uniapp-router-view-loader?style=for-the-badge)](https://github.com/2460392754/uniapp-router-view-loader)
+[![stars](https://img.shields.io/github/stars/2460392754/uniapp-router-view-loader?style=for-the-badge)](https://github.com/2460392754/uniapp-router-view-loader)
+[![license](https://img.shields.io/github/license/2460392754/uniapp-router-view-loader?style=for-the-badge)](https://github.com/2460392754/uniapp-router-view-loader)
 
 全网首个专属于 `UniApp` 的编译工具插件，全面支持各平台、各环境、各语言、各类型文件、各编译工具。
 
