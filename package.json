@@ -12,7 +12,8 @@
         "docs:build": "node ./scripts/copyChangelog.js && vuepress build docs && node ./scripts/addBaiduStatistics.js && gzip ./docs/.vuepress/dist/**/*.{html,css,js,svg}",
         "zip:example": "node ./scripts/compressZipExample.js",
         "zip:src": "zip ./zip/src.zip ./src -r -v",
-        "publish:local": "node ./scripts/localPublish.js"
+        "local:test": "node ./scripts/localTest.js",
+        "local:publish": "node ./scripts/localPublish.js"
     },
     "author": "fty2460392754@gmail.com",
     "keywords": [
