@@ -2,9 +2,18 @@ import Path from 'path'
 import Fs from 'fs'
 import ErrorId from './errorId'
 import { parse } from 'node-html-parser'
-import { name } from '../config'
+import { name, version } from '../config'
 
 // const reg = /^node-modules\/uview-ui\S+/
+
+/**
+ * 浏览器控制台输出信息
+ * console.log
+ */
+export const consoleStyle = () => {
+    return [`\`\n %c ${name} V${version} `.concat(`%c url: 965.ink/uniapp-router-view-loader \n\``), `'color: #ffffff; background: #64b587; padding:5px 0;'`, `'color: #fff;background: #38485c; padding:5px 0; margin-left:-1px;'`];
+};
+
 
 /**
  * 获取 当前路径(在node_modules下)
@@ -23,7 +32,9 @@ export const getPath = (filePath) => {
  */
 export const getFileMatchReg = function (publicPath, path) {
     const fullPath = getPath([publicPath, `/${path}`]);
-    const reg = new RegExp(`^${fullPath}.(n)?vue$`)
+    const regStr = JSON.stringify(`^${fullPath}.(n)?vue$`);
+    const reg = new RegExp(regStr.substring(1, regStr.length - 1));
+    // const reg = new RegExp(`^${fullPath}.(n)?vue$`)
 
     return reg;
 }
@@ -117,6 +128,8 @@ export const handleAppTemplateAddCode = function (source) {
         case 'mp-toutiao':
         case 'mp-kuaishou':
         case 'mp-lark':
+        case 'mp-qq':
+        case 'mp-360':
         case 'quickapp-webview':
         case 'app-plus':
         case 'vite':
