@@ -48,7 +48,7 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
         navbar: [
             { text: '首页', link: '/' },
             { text: '配置', link: '/md/configure' },
-            { text: '插件市场', link: '' },
+            { text: '插件市场', link: 'https://ext.dcloud.net.cn/plugin?id=7523' },
             // { text: 'Gitee', link: '' },
             {
                 text: 'Github',
