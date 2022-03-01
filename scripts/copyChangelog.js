@@ -4,6 +4,6 @@
 
 const fs = require('fs');
 
-fs.copyFileSync('./changelog.md', './docs/md/changelog.md', (err) => {
+fs.copyFile('./changelog.md', './docs/md/changelog.md', (err) => {
     if (err) throw err;
 });
