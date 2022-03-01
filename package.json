@@ -1,7 +1,7 @@
 {
     "name": "uniapp-router-view-loader",
-    "version": "1.0.45",
-    "description": "",
+    "version": "1.0.0",
+    "description": "打造uniapp的专属插件",
     "main": "./dist/plugins/index.js",
     "scripts": {
         "build": "rimraf ./dist && rollup --config",
@@ -12,8 +12,20 @@
         "docs:dev": "vuepress dev docs",
         "docs:build": "vuepress build docs && node ./scripts/addBaiduStatistics.js && gzip ./docs/.vuepress/dist/**/*.{html,css,js,svg} "
     },
-    "author": "",
-    "license": "ISC",
+    "author": "fty2460392754@gmail.com",
+    "keywords": [
+        "uniapp",
+        "router-view"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/2460392754/uniapp-router-view-loader.git"
+    },
+    "bugs": {
+        "url": "https://github.com/2460392754/uniapp-router-view-loader/issues"
+    },
+    "homepage": "https://github.com/2460392754/uniapp-router-view-loader",
+    "license": "MIT",
     "devDependencies": {
         "@babel/core": "^7.17.2",
         "@babel/node": "^7.16.8",
