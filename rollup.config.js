@@ -2,12 +2,16 @@ import json from '@rollup/plugin-json'
 import { uglify } from 'rollup-plugin-uglify'
 import typescript from 'rollup-plugin-typescript2';
 
+const plugins = [json()]
+
+// 生产环节开启压缩
+if (process.env.NODE_ENV === 'production') {
+    plugins.push(uglify())
+}
+
 export default [
     {
-        plugins: [
-            json(),
-            // uglify()
-        ],
+        plugins,
         input: './src/plugins/index.js', //入口文件
         output: {
             file: './dist/plugins/index.js', //打包后的存放文件
