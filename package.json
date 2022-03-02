@@ -1,6 +1,6 @@
 {
     "name": "uniapp-router-view-loader",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "打造uniapp的专属插件",
     "main": "./dist/plugins/index.js",
     "scripts": {
@@ -14,7 +14,7 @@
         "zip:example": "node ./scripts/compressZipExample.js",
         "zip:src": "zip ./zip/src.zip ./src -r -v",
         "local:test": "node ./scripts/localTest.js",
-        "local:publish": "node ./scripts/localPublish.js"
+        "local:publish": "npm run local:test && node ./scripts/localPublish.js"
     },
     "author": "fty2460392754@gmail.com",
     "keywords": [
