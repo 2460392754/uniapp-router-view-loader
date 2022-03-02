@@ -1,7 +1,7 @@
 /*
  * @Author: 2460392754@qq.com
  * @Date: 2022-03-01 18:58:45
- * @LastEditTime: 2022-03-02 01:00:43
+ * @LastEditTime: 2022-03-02 11:51:15
  * @Description: 压缩 `examples` 文件夹
  * @FilePath: /uniapp-router-view-loader/scripts/compressZipExample.js
  */
@@ -34,7 +34,7 @@ if (fs.existsSync(tempDir)) {
 // 复制 examples 文件夹中的部分文件到 temp 临时文件夹中
 fse.copySync(exampleDir, tempDir, {
     filter: (src, dest) => {
-        return !/\.git|node_modules|dist|unpackage/.test(src)
+        return !/\.git|node_modules|dist|unpackage|yarn.*/.test(src)
     }
 }, (err) => {
     console.log(chalk.red("Tip: 复制错误"));
