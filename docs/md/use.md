@@ -166,7 +166,7 @@ description: 页面的描述
 
 #### vue2
 
-在组件文件里 `this.$root.$refs` ,可以直接访问页面文件里的 `$refs`
+在组件文件里使用 `this.$root.$refs` ,可以直接访问页面文件里的 `$refs`
 
 :::: code-group
 ::: code-group-item App.vue
