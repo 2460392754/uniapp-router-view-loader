@@ -1,20 +1,19 @@
 {
-  "name": "uniapp-vue2-hbuilderx-loader",
-  "version": "1.0.0",
-  "description": "",
-  "main": "main.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "uniapp-router-view-loader": "1.0.45"
-  },
-  "devDependencies": {
-    "@vitejs/plugin-vue": "^2.2.0",
-    "lib-flexible": "^0.3.2",
-    "vite": "^2.8.2"
-  }
+    "name": "uniapp-vue2-hbuilderx-loader",
+    "version": "1.0.0",
+    "description": "",
+    "main": "main.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {},
+    "devDependencies": {
+        "@vitejs/plugin-vue": "^2.2.0",
+        "lib-flexible": "^0.3.2",
+        "uniapp-router-view-loader": "1.0.1",
+        "vite": "^2.8.2"
+    }
 }
