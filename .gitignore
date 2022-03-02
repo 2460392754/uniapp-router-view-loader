@@ -1,6 +1,8 @@
 **/node_modules
-**/dist
 **/unpackage
+/examples**/dist
+/examples/**/yarn.lock
+
 /docs/.vuepress/.temp
 /docs/.vuepress/.cache
 /docs/.vuepress/dist
