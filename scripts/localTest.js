@@ -21,7 +21,7 @@ for (const childPath of dirChildrenPathAll) {
     const toDir = './' + path.join(dirPath, childPath, 'node_modules', name, 'dist')
 
     try {
-        if (fs.existsSync(toDir)) {
+        if (fs.lstatSync(toDir).isDirectory()) {
             fse.copySync('./dist', toDir)
             console.log(chalk.yellow(`Tip: 测试项目本地部署成功【${toDir}】`));
         }
