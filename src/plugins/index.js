@@ -36,7 +36,7 @@ function handleAppVue(source) {
     const handleLabelList = Utils.handleGetTemplateHeaderOrFooterLabelCode(labelList)
 
     source = handleAppRes.source
-    source += '<script>console.log(' + Utils.consoleStyle() + ')</script>';
+    source = source.replace(/<script>/, '<script>console.log(' + Utils.consoleStyle() + ')');
     addLabel = Object.assign(addLabel, handleLabelList)
 
     return source;
