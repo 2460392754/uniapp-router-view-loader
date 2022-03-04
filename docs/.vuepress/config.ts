@@ -3,11 +3,12 @@ import type { DefaultThemeOptions } from 'vuepress';
 import type { ViteBundlerOptions } from '@vuepress/bundler-vite';
 import path from 'path';
 import LinksData from './data/links';
+import { version, name } from '../../package.json';
 
 export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
     // 站点配置
     lang: 'en-US',
-    title: 'uniapp-router-view-loader',
+    title: name + ' v' + version,
     description: 'Just playing around',
     base: '/uniapp-router-view-loader/',
 
