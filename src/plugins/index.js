@@ -13,9 +13,7 @@ let addLabel = {
  * @returns 
  */
 function getConfigure(opts) {
-    const config = Object.assign({}, Config, opts, {
-        publicPath: Config.publicPath + opts.publicPath
-    });
+    const config = Object.assign({}, Config, opts);
     const routeFilePathRegList = Utils.getRouteFileMatchRegAll(config);
 
     return {
@@ -64,7 +62,7 @@ function handleRouteFile(source, path) {
  * @returns 
  */
 export default function (source) {
-    const { config, routeFilePathRegList } = getConfigure(this.query)
+    const { routeFilePathRegList } = getConfigure(this.query)
 
     // 匹配 App.vue
     if (this.resourcePath === join(process.env.UNI_INPUT_DIR, '/App.vue')) {
@@ -84,7 +82,7 @@ export default function (source) {
  * @returns 
  */
 export function vitePlugin(opts) {
-    const { config, routeFilePathRegList } = getConfigure(opts)
+    const { routeFilePathRegList } = getConfigure(opts)
 
     return {
         name: Config.name,

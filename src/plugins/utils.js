@@ -14,16 +14,6 @@ export const consoleStyle = () => {
     return [`\`\n %c ${name} V${version} `.concat(`%c url: 965.ink/uniapp-router-view-loader \n\``), `'color: #ffffff; background: #64b587; padding:5px 0;'`, `'color: #fff;background: #38485c; padding:5px 0; margin-left:-1px;'`];
 };
 
-
-/**
- * 获取 当前路径(在node_modules下)
- * @param {string} filePath 
- * @returns 
- */
-export const getPath = (filePath) => {
-    return Path.join(__dirname, '../', ...filePath)
-}
-
 /**
  * 获取 文件匹配正则（vue或nvue文件）
  * @param {string} publicPath 
@@ -31,7 +21,7 @@ export const getPath = (filePath) => {
  * @returns 
  */
 export const getFileMatchReg = function (publicPath, path) {
-    const fullPath = getPath([publicPath, `/${path}`]);
+    const fullPath = Path.join(publicPath, `/${path}`);
     const regStr = JSON.stringify(`^${fullPath}.(n)?vue$`);
     const reg = new RegExp(regStr.substring(1, regStr.length - 1));
     // const reg = new RegExp(`^${fullPath}.(n)?vue$`)
@@ -45,18 +35,18 @@ export const getFileMatchReg = function (publicPath, path) {
  */
 export const getRouteFileMatchRegAll = function (config) {
     try {
-        const jsonStr = Fs.readFileSync(getPath([config.publicPath, './pages.json']), 'utf8')
+        const jsonStr = Fs.readFileSync(Path.join(process.env.UNI_INPUT_DIR, './pages.json'), 'utf8')
         // 移除注释
         const { pages, subPackages = [] } = JSON.parse(jsonStr.replace(/\/\/[ \S\t]+/g, ''))
         const list = [];
 
         pages.forEach(({ path }) => {
-            list.push(getFileMatchReg(config.publicPath, path))
+            list.push(getFileMatchReg(process.env.UNI_INPUT_DIR, path))
         })
 
         subPackages.forEach(({ pages, root }) => {
             pages.forEach(({ path }) => {
-                list.push(getFileMatchReg(config.publicPath, root + '/' + path))
+                list.push(getFileMatchReg(process.env.UNI_INPUT_DIR, root + '/' + path))
             })
         })
 
