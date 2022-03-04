@@ -13,9 +13,9 @@ module.exports = {
             .rule('vue')
             .use('custom-uniapp-router-view-loader')
             .loader('custom-uniapp-router-view-loader')
-            .options({
-                publicPath: './',
-            })
+            // .options({
+            //     publicPath: './',
+            // })
             .end();
     }
 };

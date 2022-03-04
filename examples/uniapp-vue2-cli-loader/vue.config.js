@@ -37,13 +37,13 @@ module.exports = {
             .rule('vue')
             .use('custom-uniapp-router-view-loader')
             .loader('custom-uniapp-router-view-loader')
-            .options({
-                publicPath: './src',
-                VNode: {
-                    'VNode-Navbar': '/src/template/navbar',
-                    'VNode-Copyright': '/src/template/copyright',
-                }
-            })
+            // .options({
+            //     publicPath: './src',
+            //     VNode: {
+            //         'VNode-Navbar': '/src/template/navbar',
+            //         'VNode-Copyright': '/src/template/copyright',
+            //     }
+            // })
             .end()
     }
 }
