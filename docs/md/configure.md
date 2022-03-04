@@ -25,9 +25,6 @@ module.exports = {
             .rule('vue')
             .use('custom-uniapp-router-view-loader')
             .loader('custom-uniapp-router-view-loader')
-            .options({
-                publicPath: './src'
-            })
             .end();
     }
 };
@@ -48,9 +45,6 @@ module.exports = {
             .rule('vue')
             .use('custom-uniapp-router-view-loader')
             .loader('custom-uniapp-router-view-loader')
-            .options({
-                publicPath: './'
-            })
             .end();
     }
 };
@@ -72,12 +66,7 @@ import uni from '@dcloudio/vite-plugin-uni';
 import { vitePlugin } from 'uniapp-router-view-loader';
 
 export default defineConfig({
-    plugins: [
-        uni(),
-        vitePlugin({
-            publicPath: './src'
-        })
-    ]
+    plugins: [uni(), vitePlugin()]
 });
 ```
 
@@ -90,20 +79,16 @@ import uni from '@dcloudio/vite-plugin-uni';
 import { vitePlugin } from 'uniapp-router-view-loader';
 
 export default defineConfig({
-    plugins: [
-        uni(),
-        vitePlugin({
-            publicPath: './'
-        })
-    ]
+    plugins: [uni(), vitePlugin()]
 });
 ```
 
 :::
 ::::
 
+<!--
 ### 配置参数
 
 | 属性名     | 说明                                                                                                                           | 是否必填 | 默认值 |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------ | -------- | ------ |
-| publicPath | `App.vue`和`pages.json`基于当前项目所在的相对路径(这 2 个文件需要在同一层级下)，默认情况下`HBuilderX`填`./`,`vue-cli`填`./src` | 是       | `./`   |
+| publicPath | `App.vue`和`pages.json`基于当前项目所在的相对路径(这 2 个文件需要在同一层级下)，默认情况下`HBuilderX`填`./`,`vue-cli`填`./src` | 是       | `./`   | -->

@@ -68,8 +68,8 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
             '/md/use',
             '/md/precautions',
             '/md/changelog',
-            '/md/aboutMe',
-            '/md/followUpPlan'
+            '/md/followUpPlan',
+            '/md/aboutMe'
 
             // {
             //     text: '实现原理',
