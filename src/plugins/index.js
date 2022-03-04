@@ -1,5 +1,6 @@
 import * as Utils from './utils'
 import * as Config from '../config'
+import { join } from 'path'
 
 let addLabel = {
     header: [],
@@ -66,7 +67,7 @@ export default function (source) {
     const { config, routeFilePathRegList } = getConfigure(this.query)
 
     // 匹配 App.vue
-    if (this.resourcePath === Utils.getPath([config.publicPath, '/App.vue'])) {
+    if (this.resourcePath === join(process.env.UNI_INPUT_DIR, '/App.vue')) {
         source = handleAppVue(source)
     }
 
@@ -91,7 +92,7 @@ export function vitePlugin(opts) {
 
         transform(source, path) {
             // 匹配 App.vue
-            if (path === Utils.getPath([config.publicPath, '/App.vue'])) {
+            if (path === join(process.env.UNI_INPUT_DIR, '/App.vue')) {
                 const env = process.env.UNI_PLATFORM;
 
                 process.env.UNI_PLATFORM = 'vite'
