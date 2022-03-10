@@ -9,9 +9,16 @@ module.exports = {
             .rule('vue')
             .use('custom-uniapp-router-view-loader')
             .loader('custom-uniapp-router-view-loader')
-            // .options({
-            //     publicPath: './',
-            // })
+            .options({
+                vLabel: {
+                    div: 'view',
+                    span: 'text'
+                    // 'u-text': 'u--text',
+                    // 'u-form': 'u--form',
+                    // 'u-input': 'u--input',
+                    // 'u-textarea': 'u--textarea'
+                }
+            })
             .end();
     }
 };

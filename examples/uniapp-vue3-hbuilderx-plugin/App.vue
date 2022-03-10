@@ -1,5 +1,7 @@
 <template>
     <Toast ref="toastRef" />
+    <div>is div to view</div>
+    <span>is span to text</span>
     <view>My Header1</view>
     <view>My Header2</view>
     <view-router />

@@ -6,7 +6,7 @@ module.exports = {
     css: {
         loaderOptions: {
             scss: {
-                prependData: `@import "~@/uni.scss";`,
+                prependData: `@import "~@/uni.scss";`
             }
         }
     },
@@ -15,7 +15,7 @@ module.exports = {
         open: false
     },
 
-    chainWebpack: config => {
+    chainWebpack: (config) => {
         // console.log(config.module)
         // config.module
         //     .rule('vue')
@@ -30,20 +30,25 @@ module.exports = {
         //         return options
         //     })
 
-
-        config.resolveLoader.alias.set('custom-uniapp-router-view-loader', 'uniapp-router-view-loader')
+        config.resolveLoader.alias.set(
+            'custom-uniapp-router-view-loader',
+            'uniapp-router-view-loader'
+        );
 
         config.module
             .rule('vue')
             .use('custom-uniapp-router-view-loader')
             .loader('custom-uniapp-router-view-loader')
-            // .options({
-            //     publicPath: './src',
-            //     VNode: {
-            //         'VNode-Navbar': '/src/template/navbar',
-            //         'VNode-Copyright': '/src/template/copyright',
-            //     }
-            // })
-            .end()
+            .options({
+                vLabel: {
+                    div: 'view',
+                    span: 'text'
+                    // 'u-text': 'u--text',
+                    // 'u-form': 'u--form',
+                    // 'u-input': 'u--input',
+                    // 'u-textarea': 'u--textarea'
+                }
+            })
+            .end();
     }
-}
+};
