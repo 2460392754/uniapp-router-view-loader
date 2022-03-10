@@ -34,6 +34,15 @@ export const getFileMatchReg = function (publicPath, path) {
 };
 
 /**
+ * 是否是 vue 或 nvue文件
+ * @param {string} path 
+ * @returns 
+ */
+export const isVueFile = function (path) {
+    return /.(n?)vue$/.test(path);
+};
+
+/**
  * 获取 所有已注册的路由文件的正则规则（vue或nvue文件）
  * @returns
  */

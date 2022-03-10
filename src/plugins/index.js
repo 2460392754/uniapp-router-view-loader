@@ -72,6 +72,13 @@ export default function (source) {
     // 匹配 路由文件
     if (routeFilePathRegList.some((reg) => reg.test(this.resourcePath))) {
         source = handleRouteFile(source, this.resourcePath);
+    }
+
+    // 是vue或nvue文件，切填写了vLabel配置
+    if (
+        Utils.isVueFile(this.resourcePath) &&
+        Object.prototype.toString.call(config.vLabel) === '[object Object]'
+    ) {
         source = Utils.handleVLabelReplacement(source, config.vLabel);
     }
 
@@ -89,6 +96,23 @@ export function vitePlugin(opts) {
         name: Config.name,
         enforce: 'pre',
 
+        // configureServer(server) {
+        //     return () => {
+        //         server.middlewares.use((req, res, next) => {
+        //             // 自定义请求处理...
+        //             console.log('hot configureServer');
+
+        //             return next();
+        //         });
+        //     };
+        // },
+
+        // handleHotUpdate(ctx) {
+        //     console.log('handleHotUpdate', ctx.modules);
+
+        //     return ctx.modules;
+        // },
+
         transform(source, path) {
             // 匹配 App.vue
             if (path === join(process.env.UNI_INPUT_DIR, '/App.vue')) {
@@ -97,17 +121,22 @@ export function vitePlugin(opts) {
                 process.env.UNI_PLATFORM = 'vite';
                 source = handleAppVue(source);
                 process.env.UNI_PLATFORM = env;
-
-                return { code: source };
             }
 
             // 匹配 路由文件
             if (routeFilePathRegList.some((reg) => reg.test(path))) {
                 source = handleRouteFile(source, path);
-                source = Utils.handleVLabelReplacement(source, config.vLabel);
-
-                return { code: source };
             }
+
+            // 是vue或nvue文件，切填写了vLabel配置
+            if (
+                Utils.isVueFile(path) &&
+                Object.prototype.toString.call(config.vLabel) === '[object Object]'
+            ) {
+                source = Utils.handleVLabelReplacement(source, config.vLabel);
+            }
+
+            return { code: source };
         }
     };
 }
