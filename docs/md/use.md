@@ -235,3 +235,23 @@ description: 页面的描述
 @[code vue{9-15}](../code/use/6/pageB.vue)
 :::
 ::::
+
+## 虚拟标签
+
+使用 `Vue.mixin` 注册文件进行混入全局默认属性
+
+使用 [uView 2](https://www.uviewui.com) 框架为例
+
+:::: code-group
+::: code-group-item vite.config.js
+@[code js](../code/use/8/vite.config.js)
+:::
+
+::: code-group-item App.vue
+@[code vue](../code/use/8/App.vue)
+:::
+
+::: code-group-item pageA.vue
+@[code vue](../code/use/8/pageA.vue)
+:::
+::::
