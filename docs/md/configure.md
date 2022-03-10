@@ -25,6 +25,16 @@ module.exports = {
             .rule('vue')
             .use('custom-uniapp-router-view-loader')
             .loader('custom-uniapp-router-view-loader')
+            .options({
+                vLabel: {
+                    div: 'view',
+                    span: 'text'
+                    // 'u-text': 'u--text',
+                    // 'u-form': 'u--form',
+                    // 'u-input': 'u--input',
+                    // 'u-textarea': 'u--textarea'
+                }
+            })
             .end();
     }
 };
@@ -45,6 +55,16 @@ module.exports = {
             .rule('vue')
             .use('custom-uniapp-router-view-loader')
             .loader('custom-uniapp-router-view-loader')
+            .options({
+                vLabel: {
+                    div: 'view',
+                    span: 'text'
+                    // 'u-text': 'u--text',
+                    // 'u-form': 'u--form',
+                    // 'u-input': 'u--input',
+                    // 'u-textarea': 'u--textarea'
+                }
+            })
             .end();
     }
 };
@@ -66,7 +86,19 @@ import uni from '@dcloudio/vite-plugin-uni';
 import { vitePlugin } from 'uniapp-router-view-loader';
 
 export default defineConfig({
-    plugins: [uni(), vitePlugin()]
+    plugins: [
+        uni(),
+        vitePlugin({
+            vLabel: {
+                div: 'view',
+                span: 'text'
+                // 'u-text': 'u--text',
+                // 'u-form': 'u--form',
+                // 'u-input': 'u--input',
+                // 'u-textarea': 'u--textarea'
+            }
+        })
+    ]
 });
 ```
 
@@ -79,16 +111,27 @@ import uni from '@dcloudio/vite-plugin-uni';
 import { vitePlugin } from 'uniapp-router-view-loader';
 
 export default defineConfig({
-    plugins: [uni(), vitePlugin()]
+    plugins: [
+        uni(),
+        vitePlugin({
+            vLabel: {
+                div: 'view',
+                span: 'text'
+                // 'u-text': 'u--text',
+                // 'u-form': 'u--form',
+                // 'u-input': 'u--input',
+                // 'u-textarea': 'u--textarea'
+            }
+        })
+    ]
 });
 ```
 
 :::
 ::::
 
-<!--
 ### 配置参数
 
-| 属性名     | 说明                                                                                                                           | 是否必填 | 默认值 |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------ | -------- | ------ |
-| publicPath | `App.vue`和`pages.json`基于当前项目所在的相对路径(这 2 个文件需要在同一层级下)，默认情况下`HBuilderX`填`./`,`vue-cli`填`./src` | 是       | `./`   | -->
+| 属性名 | 说明                                                | 是否必填 | 默认值 |
+| ------ | --------------------------------------------------- | -------- | ------ |
+| vLabel | 标签替换，可以静态全局检索 `vue` 文件代码并进行替换 | 否       | -      |
