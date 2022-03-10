@@ -1,8 +1,8 @@
-import Path from 'path'
-import Fs from 'fs'
-import ErrorId from './errorId'
-import { parse } from 'node-html-parser'
-import { name, version } from '../config'
+import Path from 'path';
+import Fs from 'fs';
+import ErrorId from './errorId';
+import { parse } from 'node-html-parser';
+import { name, version } from '../config';
 
 // const reg = /^node-modules\/uview-ui\S+/
 
@@ -11,14 +11,18 @@ import { name, version } from '../config'
  * console.log
  */
 export const consoleStyle = () => {
-    return [`\`\n %c ${name} V${version} `.concat(`%c url: 965.ink/uniapp-router-view-loader \n\``), `'color: #ffffff; background: #64b587; padding:5px 0;'`, `'color: #fff;background: #38485c; padding:5px 0; margin-left:-1px;'`];
+    return [
+        `\`\n %c ${name} V${version} `.concat(`%c url: 965.ink/uniapp-router-view-loader \n\``),
+        `'color: #ffffff; background: #64b587; padding:5px 0;'`,
+        `'color: #fff;background: #38485c; padding:5px 0; margin-left:-1px;'`
+    ];
 };
 
 /**
  * 获取 文件匹配正则（vue或nvue文件）
- * @param {string} publicPath 
- * @param {string} path 
- * @returns 
+ * @param {string} publicPath
+ * @param {string} path
+ * @returns
  */
 export const getFileMatchReg = function (publicPath, path) {
     const fullPath = Path.join(publicPath, `/${path}`);
@@ -27,60 +31,62 @@ export const getFileMatchReg = function (publicPath, path) {
     // const reg = new RegExp(`^${fullPath}.(n)?vue$`)
 
     return reg;
-}
+};
 
 /**
  * 获取 所有已注册的路由文件的正则规则（vue或nvue文件）
- * @returns 
+ * @returns
  */
 export const getRouteFileMatchRegAll = function (config) {
     try {
-        const jsonStr = Fs.readFileSync(Path.join(process.env.UNI_INPUT_DIR, './pages.json'), 'utf8')
+        const jsonStr = Fs.readFileSync(
+            Path.join(process.env.UNI_INPUT_DIR, './pages.json'),
+            'utf8'
+        );
         // 移除注释
-        const { pages, subPackages = [] } = JSON.parse(jsonStr.replace(/\/\/[ \S\t]+/g, ''))
+        const { pages, subPackages = [] } = JSON.parse(jsonStr.replace(/\/\/[ \S\t]+/g, ''));
         const list = [];
 
         pages.forEach(({ path }) => {
-            list.push(getFileMatchReg(process.env.UNI_INPUT_DIR, path))
-        })
+            list.push(getFileMatchReg(process.env.UNI_INPUT_DIR, path));
+        });
 
         subPackages.forEach(({ pages, root }) => {
             pages.forEach(({ path }) => {
-                list.push(getFileMatchReg(process.env.UNI_INPUT_DIR, root + '/' + path))
-            })
-        })
+                list.push(getFileMatchReg(process.env.UNI_INPUT_DIR, root + '/' + path));
+            });
+        });
 
         return list;
     } catch (e) {
-        console.log(e)
-        print('error', ErrorId[10001])
+        console.log(e);
+        print('error', ErrorId[10001]);
     }
-}
-
+};
 
 /**
  * 添加代码到头部
- * @param {*} source 
- * @param {*} code 
+ * @param {*} source
+ * @param {*} code
  */
 export const addCodeToHeader = function (source, code) {
-    return source.replace(/<view(.*?)>/, s => s + code)
-}
+    return source.replace(/<view(.*?)>/, (s) => s + code);
+};
 
 /**
  * 添加代码到尾部
- * @param {*} source 
- * @param {*} code 
+ * @param {*} source
+ * @param {*} code
  */
 export const addCodeToFooter = function (source, code) {
-    return source.replace(/(<\/view>)([\s|S]+)(<\/template>)/, s => code + s)
-}
+    return source.replace(/(<\/view>)([\s|S]+)(<\/template>)/, (s) => code + s);
+};
 
 // /**
 //  * 获取 App.vue 文件中 template 默认内容
 //  * 先匹配标签再移除首位标签
-//  * @param {*} source 
-//  * @returns 
+//  * @param {*} source
+//  * @returns
 //  */
 // function handle(source) {
 //     return source.match(/(<template>).*?(<\/template>)/)[0].replace(/<(\/?)template>/g, '')
@@ -89,23 +95,25 @@ export const addCodeToFooter = function (source, code) {
 /**
  * 获取 App.vue 文件中 template 默认内容
  * 先匹配标签再移除首位标签
- * @param {*} source 
- * @returns 
+ * @param {*} source
+ * @returns
  */
 export const handleAppTemplateAddCode = function (source) {
     // `App.vue`中我们添加的代码`tepmlate`代码
-    let addCode = ''
+    let addCode = '';
 
     switch (process.env.UNI_PLATFORM) {
         case 'h5':
             // 获取App.vue中uniapp插入的代码和我们添加的代码
-            const originTemplateCode = source.replace(/(?<=<\/template>)[\w\W]*<\/template>/, s => {
-                addCode = s;
-                return '';
-            }).match(/<template>[\s\S]+<\/template>/)[0]
+            const originTemplateCode = source
+                .replace(/(?<=<\/template>)[\w\W]*<\/template>/, (s) => {
+                    addCode = s;
+                    return '';
+                })
+                .match(/<template>[\s\S]+<\/template>/)[0];
 
             // 移除我们添加的代码, 使代码还原
-            source = source.replace(/<template>[\s\S]+<\/template>/, originTemplateCode)
+            source = source.replace(/<template>[\s\S]+<\/template>/, originTemplateCode);
 
             return {
                 source,
@@ -123,20 +131,20 @@ export const handleAppTemplateAddCode = function (source) {
         case 'quickapp-webview':
         case 'app-plus':
         case 'vite':
-            source = source.replace(/<template>[\s\S]+<\/template>/, s => {
+            source = source.replace(/<template>[\s\S]+<\/template>/, (s) => {
                 addCode = s;
                 return '';
-            })
+            });
 
             return {
                 source,
                 addCode
-            }
+            };
 
         default:
-            print('error', ErrorId[10201])
+            print('error', ErrorId[10201]);
     }
-}
+};
 
 /**
  * 获取 template 代码中的每组闭合根标签
@@ -149,20 +157,20 @@ export const handleAppTemplateAddCode = function (source) {
  *     <text>123</text>
  * </view>
  * ```
- * @param {*} source 
+ * @param {*} source
  */
 export const handleGetTemplateRowCode = function (source) {
     // 过滤template标签
-    source = source.replace(/<(\/?)template>/g, '')
+    source = source.replace(/<(\/?)template>/g, '');
 
     // 过滤注释标签并解第一层级的所有标签
     const codeStrList = parse(source).querySelectorAll('> *').toString().split(',');
 
     // 过滤 \n和空格
     // return codeStrList.map(codeStr => codeStr.replace(/(\n?)\s+/g, ''));
-    return codeStrList.map(codeStr => codeStr.replace(/\n\s+/g, ''));
+    return codeStrList.map((codeStr) => codeStr.replace(/\n\s+/g, ''));
 
-    // === 
+    // ===
     // const list = [];
 
     // // 过滤 注释标签
@@ -177,12 +185,12 @@ export const handleGetTemplateRowCode = function (source) {
     // source.match(/(<.*? \/>)|(<.*?>([\w\s<>\/]+)<\/.*?>)/g)
 
     // return list;
-}
+};
 
 /**
  * 获取 App.vue代码中实际添加到页面代码的头部或尾部标签
- * @param {*} labelList 
- * @returns 
+ * @param {*} labelList
+ * @returns
  */
 export const handleGetTemplateHeaderOrFooterLabelCode = function (labelList) {
     const viewRouterReg = /<view-router(\s{0,})><\/view-router>/;
@@ -192,58 +200,58 @@ export const handleGetTemplateHeaderOrFooterLabelCode = function (labelList) {
     let flag = false;
     let count = 0;
 
-    labelList.forEach(label => {
+    labelList.forEach((label) => {
         if (viewRouterReg.test(label)) {
             flag = true;
-            count++
+            count++;
             return true;
         }
 
         if (flag) {
-            footer.push(label)
+            footer.push(label);
         } else {
-            header.push(label)
+            header.push(label);
         }
-    })
+    });
 
     // 标签异常
     if (count === 0) {
-        print('error', ErrorId[10101])
+        print('error', ErrorId[10101]);
     } else if (count > 1) {
-        print('error', ErrorId[10102])
+        print('error', ErrorId[10102]);
     }
 
     return {
         header,
         footer
-    }
-}
+    };
+};
 
 /**
  * 获取 显示ID
- * @returns 
+ * @returns
  */
 export const getPrintID = function () {
-    return `[${name}]:`
-}
+    return `[${name}]:`;
+};
 
 /**
  * 打印日志
- * @param {'log'|'error'} type 
+ * @param {'log'|'error'} type
  * @param {string} msg
  */
 export const print = function (type = 'log', msg) {
-    const ID = getPrintID()
+    const ID = getPrintID();
 
     switch (type) {
         case 'log':
-            console.log(`${ID}${msg}`)
+            console.log(`${ID}${msg}`);
             break;
 
         case 'error':
-            throw new Error(`${ID}${msg}`)
+            throw new Error(`${ID}${msg}`);
     }
-}
+};
 
 /**
  * 获取 ast 中静态和动态 class 内容
@@ -318,15 +326,37 @@ export const print = function (type = 'log', msg) {
 //  * @param {string} source
 //  */
 // export const handleVNodeReplace = function (source) {
-//     Object.keys(Config.VNode).forEach(name => {
-//         const reg = new RegExp(`<${name}(\\s{0,})\/>`)
+//     Object.keys(Config.VNode).forEach((name) => {
+//         const reg = new RegExp(`<${name}(\\s{0,})\/>`);
 
 //         if (reg.test(source)) {
-//             const template = Fs.readFileSync(Path.join(__dirname, '../', Config.VNode[name])).toString();
+//             const template = Fs.readFileSync(
+//                 Path.join(__dirname, '../', Config.VNode[name])
+//             ).toString();
 
-//             source = source.replace(reg, template)
+//             source = source.replace(reg, template);
 //         }
-//     })
+//     });
 
-//     return source
-// }
+//     return source;
+// };
+
+/**
+ * 虚拟标签，例："<div />" => "<view />"
+ * @param {string} source
+ */
+export const handleVLabelReplacement = function (source, vLabel = {}) {
+    for (const [key, val] of Object.entries(vLabel)) {
+        // "<u-text>xxx</u-text>"
+        const reg1 = new RegExp(`<(\/?)${key}(\\s*)>`, 'g');
+        // "<u-text />"
+        const reg2 = new RegExp(`<${key}(.*?)\/>`, 'g');
+
+        const labelReplaceReg = new RegExp(key, 'g');
+
+        source = source.replace(reg1, (s) => s.replace(labelReplaceReg, val));
+        source = source.replace(reg2, (s) => s.replace(labelReplaceReg, val));
+    }
+
+    return source;
+};

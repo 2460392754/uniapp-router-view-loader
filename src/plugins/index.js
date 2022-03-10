@@ -1,16 +1,16 @@
-import * as Utils from './utils'
-import * as Config from '../config'
-import { join } from 'path'
+import * as Utils from './utils';
+import * as Config from '../config';
+import { join } from 'path';
 
 let addLabel = {
     header: [],
     footer: []
-}
+};
 
 /**
  * 获取 配置
- * @param {*} opts 
- * @returns 
+ * @param {*} opts
+ * @returns
  */
 function getConfigure(opts) {
     const config = Object.assign({}, Config, opts);
@@ -19,70 +19,71 @@ function getConfigure(opts) {
     return {
         config,
         routeFilePathRegList
-    }
+    };
 }
 
 /**
  * 处理 App.vue文件
  * @param {string} source
- * @returns 
+ * @returns
  */
 function handleAppVue(source) {
-    Utils.print('App.vue file match, process: ', process.env.UNI_PLATFORM)
+    Utils.print('App.vue file match, process: ', process.env.UNI_PLATFORM);
 
-    const handleAppRes = Utils.handleAppTemplateAddCode(source)
-    const labelList = Utils.handleGetTemplateRowCode(handleAppRes.addCode)
-    const handleLabelList = Utils.handleGetTemplateHeaderOrFooterLabelCode(labelList)
+    const handleAppRes = Utils.handleAppTemplateAddCode(source);
+    const labelList = Utils.handleGetTemplateRowCode(handleAppRes.addCode);
+    const handleLabelList = Utils.handleGetTemplateHeaderOrFooterLabelCode(labelList);
 
-    source = handleAppRes.source
+    source = handleAppRes.source;
     source = source.replace(/<script>/, '<script>console.log(' + Utils.consoleStyle() + ')');
-    addLabel = Object.assign(addLabel, handleLabelList)
+    addLabel = Object.assign(addLabel, handleLabelList);
 
     return source;
 }
 
 /**
  * 处理 路由文件
- * @param {*} source 
- * @param {*} path 
- * @returns 
+ * @param {*} source
+ * @param {*} path
+ * @returns
  */
 function handleRouteFile(source, path) {
-    Utils.print('route file match: ', path)
+    Utils.print('route file match: ', path);
 
-    source = Utils.addCodeToHeader(source, addLabel.header.join(''))
-    source = Utils.addCodeToFooter(source, addLabel.footer.join(''))
+    source = Utils.addCodeToHeader(source, addLabel.header.join(''));
+    source = Utils.addCodeToFooter(source, addLabel.footer.join(''));
 
     return source;
 }
 
 /**
  * webpack loader
- * @param {string} source 
- * @returns 
+ * @param {string} source
+ * @returns
  */
 export default function (source) {
-    const { routeFilePathRegList } = getConfigure(this.query)
+    const { routeFilePathRegList, config } = getConfigure(this.query);
 
     // 匹配 App.vue
     if (this.resourcePath === join(process.env.UNI_INPUT_DIR, '/App.vue')) {
-        source = handleAppVue(source)
+        source = handleAppVue(source);
     }
 
     // 匹配 路由文件
-    if (routeFilePathRegList.some(reg => reg.test(this.resourcePath))) {
-        source = handleRouteFile(source, this.resourcePath)
+    if (routeFilePathRegList.some((reg) => reg.test(this.resourcePath))) {
+        source = handleRouteFile(source, this.resourcePath);
+        source = Utils.handleVLabelReplacement(source, config.vLabel);
     }
 
-    return source
+    return source;
 }
 
 /**
  * vite plugin
- * @returns 
+ * @returns
  */
 export function vitePlugin(opts) {
-    const { routeFilePathRegList } = getConfigure(opts)
+    const { routeFilePathRegList, config } = getConfigure(opts);
 
     return {
         name: Config.name,
@@ -93,19 +94,20 @@ export function vitePlugin(opts) {
             if (path === join(process.env.UNI_INPUT_DIR, '/App.vue')) {
                 const env = process.env.UNI_PLATFORM;
 
-                process.env.UNI_PLATFORM = 'vite'
-                source = handleAppVue(source)
-                process.env.UNI_PLATFORM = env
+                process.env.UNI_PLATFORM = 'vite';
+                source = handleAppVue(source);
+                process.env.UNI_PLATFORM = env;
 
-                return { code: source }
+                return { code: source };
             }
 
             // 匹配 路由文件
-            if (routeFilePathRegList.some(reg => reg.test(path))) {
-                source = handleRouteFile(source, path)
+            if (routeFilePathRegList.some((reg) => reg.test(path))) {
+                source = handleRouteFile(source, path);
+                source = Utils.handleVLabelReplacement(source, config.vLabel);
 
-                return { code: source }
+                return { code: source };
             }
         }
-    }
+    };
 }
