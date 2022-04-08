@@ -48,6 +48,12 @@ export const isVueFile = function (path) {
  */
 export const getRouteFileMatchRegAll = function (config) {
     try {
+        if (config.routes && config.routes.length > 0) {
+            return config.routes.map((route) => {
+                const path = typeof route === 'string'?route:route.path;
+                return getFileMatchReg(process.env.UNI_INPUT_DIR, path);
+            });
+        }
         const jsonStr = Fs.readFileSync(
             Path.join(process.env.UNI_INPUT_DIR, './pages.json'),
             'utf8'
