@@ -88,7 +88,7 @@ export const addCodeToHeader = function (source, code) {
  * @param {*} code
  */
 export const addCodeToFooter = function (source, code) {
-    return source.replace(/(<\/view>)([\s|S]+)(<\/template>)/, (s) => code + s);
+    return source.replace(/(<\/view>)([\s|S]+)(<\/template>)$/, (s) => code + s);
 };
 
 // /**

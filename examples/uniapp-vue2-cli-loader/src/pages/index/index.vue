@@ -1,5 +1,11 @@
 <template>
     <view>
+        <u-navbar bgColor="transparent">
+            <template v-slot:left>
+                <view class="nav-bar-text">首页</view>
+            </template>
+        </u-navbar>
+
         <u-button type="primary" text="显示 success toast" @click="showToast" />
         <CustomSubmit />
     </view>
