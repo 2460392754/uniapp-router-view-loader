@@ -92,7 +92,7 @@
         "mini-types": "*",
         "miniprogram-api-typings": "*",
         "postcss-comment": "^2.0.0",
-        "uniapp-router-view-loader": "1.1.0",
+        "uniapp-router-view-loader": "1.1.1",
         "vue-template-compiler": "^2.6.11"
     },
     "browserslist": [

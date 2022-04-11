@@ -13,6 +13,6 @@
         "uview-ui": "^2.0.27"
     },
     "devDependencies": {
-        "uniapp-router-view-loader": "1.1.0"
+        "uniapp-router-view-loader": "1.1.1"
     }
 }
