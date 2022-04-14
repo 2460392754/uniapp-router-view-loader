@@ -35,8 +35,8 @@ export const getFileMatchReg = function (publicPath, path) {
 
 /**
  * 是否是 vue 或 nvue文件
- * @param {string} path 
- * @returns 
+ * @param {string} path
+ * @returns
  */
 export const isVueFile = function (path) {
     return /.(n?)vue$/.test(path);
@@ -88,7 +88,10 @@ export const addCodeToHeader = function (source, code) {
  * @param {*} code
  */
 export const addCodeToFooter = function (source, code) {
-    return source.replace(/(<\/view>)([\s|S]+)(<\/template>)$/, (s) => code + s);
+    return source.replace(
+        /(<\/view>)([\s]*)(<\/template>)(?!(([\s\S]*)(<\/template>)))/,
+        (s) => code + s
+    );
 };
 
 // /**
