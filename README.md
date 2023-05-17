@@ -7,7 +7,7 @@
 [![downloads](https://img.shields.io/npm/dm/uniapp-router-view-loader.svg?sanitize=true&style=for-the-badge)](https://www.npmjs.com/package/uniapp-router-view-loader)
 [![npm](https://img.shields.io/npm/v/uniapp-router-view-loader.svg?sanitize=true&style=for-the-badge)](https://www.npmjs.com/package/uniapp-router-view-loader)
 
-[在线文档](https://www.965.ink/uniapp-router-view-loader/)
+[在线文档](https://docs.965.ink/uniapp-router-view-loader/)
 
 [demo 项目](./examples/)
 
@@ -22,8 +22,8 @@
 
 ## 功能
 
--   [路由模板](https://www.965.ink/uniapp-router-view-loader/md/introduce.html#路由模板)
--   [虚拟标签](https://www.965.ink/uniapp-router-view-loader/md/introduce.html#虚拟标签)
+-   [路由模板](https://docs.965.ink/uniapp-router-view-loader/md/introduce.html#路由模板)
+-   [虚拟标签](https://docs.965.ink/uniapp-router-view-loader/md/introduce.html#虚拟标签)
 
 ## 后续计划
 
